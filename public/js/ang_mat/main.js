@@ -11,14 +11,17 @@ angular.module('mainApp', [
   'mainApp.contact',
   'postServices'
 ]).
-config(['$routeProvider', function($routeProvider) {
+config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemingProvider) {
   $routeProvider.otherwise({redirectTo: '/blog'});
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue-grey')
+    .accentPalette('orange')
 }])
 .controller('MainCtrl', ['$scope', '$interpolate', '$location', function($scope, $interpolate, $location) {
   var tabs = [
     { title: 'Blog', path: 'blog', idx: 0},
-    { title: 'Gallery', path: 'gallery', idx: 1}  ,
-    { title: 'Contact', path: 'contact', idx: 2}
+    { title: 'Galeria', path: 'gallery', idx: 1}  ,
+    { title: 'Contacto', path: 'contact', idx: 2}
   ];
 
   $scope.tabs = tabs;

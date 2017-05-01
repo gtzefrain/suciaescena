@@ -12,15 +12,13 @@ block js
   script(src='/js/ang_mat/main.js')
 
 block app
-  div(ng-controller="MainCtrl as main" md-theme="green" layout="vertical" layout-fill)
+  div(ng-controller="MainCtrl as main" md-theme="default" layout="column" layout-fill)
     md-toolbar(class="app-toolbar")
       div(class="md-toolbar-tools")
-        a(href="/") &larr; Go back to Keystone
-        //- span(flex)
-        md-tabs(selected="selectedIndex")
+        img.logo(src='/images/suciaescenalogo.jpg' alt="sucia escena")
+        span(flex)
+        md-tabs(md-center-tabs="true" selected="selectedIndex")
           md-tab(ng-repeat="tab in tabs" on-select="onTabSelected(tab)" on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="{{tab.title}}" ng-click="go(tab, '/' + tab.path)")
           md-tabs
     md-content
       div(layout="vertical" layout-fill ng-view)
-
-    

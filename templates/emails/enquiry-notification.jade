@@ -4,7 +4,7 @@ block body-contents
 	h1 Hi *|first_name|*,
 	p.text-larger An enquiry was just submitted to #{brand}:
 	if enquiry.name.full || enquiry.email
-		p.text-larger From 
+		p.text-larger From
 			if enquiry.name.full
 				| <strong>#{enquiry.name.full}</strong>
 			if enquiry.name.full && enquiry.email

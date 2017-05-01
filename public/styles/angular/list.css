@@ -3,3 +3,17 @@
   border: 1px solid #ddd;
   width: 48px;
   margin: 16px; }
+
+.logo{
+  width: 160px;
+  padding-right: 20px;
+}
+
+.md-center-tabs {
+        margin: 0;
+        margin-left: auto;
+      }
+
+md-sidenav{
+    width: 210px
+}

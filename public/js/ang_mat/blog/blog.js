@@ -16,10 +16,23 @@ angular.module('mainApp.blog', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', '$routeParams', '$scope', '$location', '$mdSidenav', function(Post, PostByCategory, PostCategory, $routeParams, $scope, $location, $mdSidenav) {
+.controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', '$routeParams', '$scope', '$location', '$mdSidenav', function(Post, PostByCategory, PostCategory, $routeParams, $scope, $location, $mdSidenav, $media, $mdUtil) {
   var blog = this;
 
   blog.posts = [];
+
+  function buildToggler(navID) {
+    var debounceFn =  $mdUtil.debounce(function(){
+          $mdSidenav(navID)
+            .toggle()
+            .then(function () {
+              $log.debug("toggle " + navID + " is done");
+            });
+        },300);
+
+    return debounceFn;
+  }
+
 
   if ($routeParams.key != null)
     blog.posts = PostByCategory.query({key:$routeParams.key});
@@ -52,4 +65,3 @@ angular.module('mainApp.blog', ['ngRoute'])
   };
 
 }]);
-

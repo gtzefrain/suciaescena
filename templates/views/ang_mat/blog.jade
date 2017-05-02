@@ -1,13 +1,14 @@
 doctype html
-div(ng-controller="HomeCtrl as blog" layout="horizontal" layout-fill)
-  md-sidenav(id="left" class="md-sidenav-left" component-id="left" is-locked-open="$media('md')")
+div(ng-controller="HomeCtrl as blog" layout="vertical" flex)
+  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left" md-is-locked-open="$media('gt-md')" flex)
     md-toolbar
-      h3(class="md-toolbar-tools") Categories
-    md-content(class="md-padding")
+      h1(class="md-toolbar-tools") Categorias
+    md-content(layout-padding="")
       md-button(ng-repeat="category in blog.categories" ng-click="refreshPosts(category.key)" class="md-primary" aria-label="Show Category {{category.name}}") {{category.name}}
-      md-button(ng-click="closeLeft()" class="md-primary" hide-md aria-label="Close Categories") Close
-  md-content
-    md-button(ng-click="blog.toggleLeft()" class="md-primary" aria-label="Toggle Categories" hide-md) Categories
+      md-button(ng-click="closeLeft()" class="md-primary" hide-md aria-label="Close Categories") Close  
+  md-content(flex)
+    md-button(ng-click="blog.toggleLeft()" class="md-primary" aria-label="Toggle Categories" hide-gt-md) Categorias
+    
     md-list
       md-item(ng-repeat="post in blog.posts")
         md-item-content
@@ -18,16 +19,17 @@ div(ng-controller="HomeCtrl as blog" layout="horizontal" layout-fill)
             //- img(ng-src="{{post.image.url}}" class="face img" ng-click="go('/post/'+post.slug)")
           div(class="md-tile-content")
             h3 {{post.title}}
-            h4 Posted on {{post.publishedDate | date:'longDate'}} in
+            h4 {{post.publishedDate | date:'longDate'}} en 
               span(ng-repeat="category in post.categories")
                 a(href="" ng-click="go('/blog/' + category.key)") {{category.name}}
                 //- md-button(ng-click="refreshPosts(category.key)") {{category.name}}
                 | {{$last ? ' ' : ', '}}
-              | by {{post.author.name.first}}
-
-            //- {{post.content.brief}}
+              | por {{post.author.name.first}}
+              //- {{post.content.brief}}
             div(ng-bind-html="post.content.brief")
             //- a(href="app#/post/{{post.slug}}") Read
             md-button(class="md-raised" ng-click="go('/post/'+post.slug)" aria-label="Read {{post.slug}}") Read
-          //- div(class="md-tile-right")
+            //- div(class="md-tile-right")
         md-divider(ng-if="!$last" inset)
+
+    

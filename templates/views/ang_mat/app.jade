@@ -2,6 +2,10 @@ extends ../../layouts/ang_mat
 
 block css
   link(href="/styles/angular/list.css", rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet")
+  link(href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" rel="stylesheet")
+  link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+
 
 block js
   script(src='/js/ang_mat/services.js')
@@ -10,6 +14,9 @@ block js
   script(src='/js/ang_mat/gallery/gallery.js')
   script(src='/js/ang_mat/contact/contact.js')
   script(src='/js/ang_mat/main.js')
+  script(src="https://code.jquery.com/jquery-2.1.1.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js")
+
 
 block app
   div(ng-controller="MainCtrl as main" md-theme="default" layout="column" layout-fill)

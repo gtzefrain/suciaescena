@@ -1,12 +1,20 @@
 doctype html
 div(ng-controller="PostCtrl as postctrl" layout="vertical" layout-fill)
-  md-content
-    a(href="" ng-click="go('/blog')") &larr; Back to the blog
-    h2 {{postctrl.post.title}}
-    h3 Posted on {{postctrl.post.publishedDate | date:'longDate'}} in
-      span(ng-repeat="category in postctrl.post.categories") 
-        a(href="" ng-click="go('/blog/' + category.key)") {{category.name}}
-        | {{$last ? ' ' : ', '}}
-      | by {{postctrl.post.author.name.first}}
+  md-content(class="full center post")
+    a(href="" ng-click="go('/blog')") 
+      div.back 
+        p &larr; Regresar al blog
+    h2.titulo {{postctrl.post.title}}
+    md-divider(inset)
+    h3.subtitulo {{postctrl.post.publishedDate | date:'longDate'}} 
+      | por {{postctrl.post.author.name.first}} {{postctrl.post.author.name.last}}
+    md-divider( inset)  
     img(ng-src="{{postctrl.post.image.url}}" class="art-img")
-    div(ng-bind-html="postctrl.post.content.extended")
+    div.texto(ng-bind-html="postctrl.post.content.extended")
+    md-divider(inset style="margin-bottom:10px;")
+    span(ng-repeat="category in postctrl.post.categories") 
+      a(href="" ng-click="go('/blog/' + category.key)") 
+        div.chip {{category.name}}
+        
+        
+    

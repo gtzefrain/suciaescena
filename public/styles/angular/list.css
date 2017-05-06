@@ -21,3 +21,41 @@ md-sidenav.md-closed.md-locked-open-add-active {
   width: 85vw !important;
   max-width: 275px !important;
 }
+
+.md-button.md-default-theme.md-primary {
+    display: block;
+    width: 100%;
+}
+
+.md-tile-content{
+  padding:0px;
+  position:relative;
+}
+.img{
+width: 100%;
+height: 300px;
+position: relative;
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover
+}
+
+
+.datos_post{
+  position: absolute;
+  top:70%;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+.derecha{
+  right: 10%;
+}
+.izquierda{
+  left: 10%;
+}
+
+/*Tablet*/
+
+
+/*Movil*/

@@ -11,8 +11,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Keystone Angular Skeleton',
-	'brand': 'Keystone Angular Skeleton',
+	'name': 'Sucia Escena',
+	'brand': 'Sucia Escena',
 
 	'less': 'public',
 	'static': 'public',

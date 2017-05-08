@@ -122,10 +122,23 @@ background-size: cover
 .contacto_iconos > i {
   font-size: 200px;
 }
+
+.iconos_toolbar{
+  display: flex;
+}
+
+.iconos_toolbar > a > i{
+  padding:  5px;
+  color: white;
+}
 /*Tablet*/
 
 
 /*Movil*/
+.social{
+  min-height: 0px;
+  height: 30px;
+}
 /*.md-tab-themed{
 width: 80px;
 max-width: 80px;

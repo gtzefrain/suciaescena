@@ -39,11 +39,7 @@ var routes = {
 exports = module.exports = function(app) {
 
 	// Views
-	app.get('/', routes.views.index);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
-	app.get('/gallery', routes.views.gallery);
-	app.all('/contact', routes.views.contact);
+
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
@@ -73,11 +69,11 @@ exports = module.exports = function(app) {
 	app.get('/api/enquiry_type/:value', [keystone.middleware.api, keystone.middleware.cors], routes.api.enquiry_types.get);
 
 	// App Routes for Angular Material Project
-	app.get('/ang-mat', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.app);
-	app.get('/ang-mat/blog', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.blog);
-	app.get('/ang-mat/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.post);
-	app.get('/ang-mat/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.gallery);
-	app.get('/ang-mat/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.contact);
+	app.get('/', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.app);
+	app.get('/blog', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.blog);
+	app.get('/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.post);
+	app.get('/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.gallery);
+	app.get('/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.contact);
 
 	// App Routes for Angular Bootstrap Material Project
 	app.get('/ang_bootm', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.app);

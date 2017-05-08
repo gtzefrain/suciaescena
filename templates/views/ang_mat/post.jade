@@ -5,6 +5,8 @@ div(ng-controller="PostCtrl as postctrl" layout="vertical" layout-fill)
       div.back 
         p &larr; Regresar al blog
     h2.titulo {{postctrl.post.title}}
+    div.fb-share-button(data-layout="button" data-size="small" data-mobile-iframe="true")
+      a.fb-xfbml-parse-ignore (target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse") Share
     md-divider(inset)
     h3.subtitulo {{postctrl.post.publishedDate | date:'longDate'}} 
       | por {{postctrl.post.author.name.first}} {{postctrl.post.author.name.last}}

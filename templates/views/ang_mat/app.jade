@@ -25,9 +25,8 @@ block app
     md-toolbar(class="app-toolbar")
       div(class="md-toolbar-tools")
         img.logo(src='/images/suciaescenalogo.jpg' alt="sucia escena")
-        span(flex)
         md-tabs(md-center-tabs="true" selected="selectedIndex")
           md-tab(ng-repeat="tab in tabs" on-select="onTabSelected(tab)" on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="{{tab.title}}" ng-click="go(tab, '/' + tab.path)")
-          md-tabs
+        flex
     md-content
       div(layout="vertical" layout-fill ng-view)

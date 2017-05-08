@@ -53,4 +53,21 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
   function announceSelected(tab) {
     $scope.greeting = $interpolate("Hello {{title}}!")(tab);
   }
+
+    window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1428305917226576',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'))
 }]);

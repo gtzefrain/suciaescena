@@ -115,6 +115,13 @@ background-size: cover
   padding-right: 15%;
   text-align: left;
 }
+
+.contacto_iconos {
+  text-align: center;
+}
+.contacto_iconos > i {
+  font-size: 200px;
+}
 /*Tablet*/
 
 

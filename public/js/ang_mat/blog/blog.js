@@ -2,6 +2,7 @@
 
 angular.module('mainApp.blog', ['ngRoute'])
 
+
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/blog/:key', {
     templateUrl: '/blog',
@@ -18,6 +19,8 @@ angular.module('mainApp.blog', ['ngRoute'])
 
 .controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', '$routeParams', '$scope', '$location', '$mdSidenav', function(Post, PostByCategory, PostCategory, $routeParams, $scope, $location, $mdSidenav, $media, $mdUtil) {
   var blog = this;
+
+  console.log($scope.isMobile);
 
   blog.posts = [];
 
@@ -49,19 +52,24 @@ angular.module('mainApp.blog', ['ngRoute'])
     $location.path( path );
   };
 
-  blog.toggleLeft = function() {
-    $mdSidenav('left').toggle();
+  blog.toggleRight = function() {
+    $mdSidenav('right').toggle();
   };
 
   $scope.refreshPosts = function(the_key) {
-    if (the_key == 'list')
+    if (the_key == 'list'){
       blog.posts = Post.query();
-    else
+      $mdSidenav('right').toggle();
+      console.log($('.back'));
+    }else{
       blog.posts = PostByCategory.query({key:the_key});
+      $mdSidenav('right').toggle();
+      console.log($('.back'));
+    }
   };
 
-  $scope.closeLeft = function() {
-    $mdSidenav('left').close();
+  $scope.closeRight = function() {
+    $mdSidenav('right').close();
   };
 
 }]);

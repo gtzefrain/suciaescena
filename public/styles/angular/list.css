@@ -54,15 +54,15 @@ background-size: cover
 
 .datos_post{
   position: absolute;
-  top:60%;
+  top:50%;
   color: white;
   text-shadow: 1px 1px black;
 }
 .derecha{
-  right: 10%;
+  right: 5%;
 }
 .izquierda{
-  left: 10%;
+  left: 5%;
 }
 
 /*Post*/
@@ -118,6 +118,7 @@ background-size: cover
 
 .contacto_iconos {
   text-align: center;
+  padding: 10px;
 }
 .contacto_iconos > i {
   font-size: 200px;
@@ -131,14 +132,23 @@ background-size: cover
   padding:  5px;
   color: white;
 }
+
+.md-button.md-default-theme {
+  border-radius: 0px;
+}
 /*Tablet*/
-
-
-/*Movil*/
 .social{
   min-height: 0px;
   height: 30px;
 }
+strong{
+  font-weight: bold !important;
+}
+@media (min-width:500px){/*Movil*/
+.md-{/*properties*/}
+}
+/*Movil*/
+
 /*.md-tab-themed{
 width: 80px;
 max-width: 80px;

@@ -1,12 +1,11 @@
 doctype html
-.container(ng-controller="ContactCtrl as contactCtrl")
-  md-content(flex)
+.container(ng-controller="ContactCtrl as contactCtrl" style="width:100%;")
+  md-content(flex style="margin-top:10%;")
     div(layout="row" layout-sm="column" flex)
-      div.contacto_iconos
+      div.contacto_iconos(flex="30")
         i.fa.fa-facebook-square
-      | sjsjsjsj
-      div.contacto_iconos
+      div.contacto_iconos(flex="30")
         i.fa.fa-youtube-play
-      div.contacto_iconos
+      div.contacto_iconos(flex="30")
         i.fa.fa-instagram
     

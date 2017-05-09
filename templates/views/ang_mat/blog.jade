@@ -1,20 +1,19 @@
 doctype html
 div(ng-controller="HomeCtrl as blog" layout="vertical" flex)
-  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left" md-is-locked-open="$media('gt-md')" flex)
+  md-sidenav.md-sidenav-right.md-whiteframe-4dp(md-component-id="right" flex)
     md-toolbar
       h1(class="md-toolbar-tools") Categorias
     md-content(layout-padding="")
       md-button(ng-repeat="category in blog.categories" ng-click="refreshPosts(category.key)" class="md-primary" aria-label="Show Category {{category.name}}") {{category.name}}
-      md-button(ng-click="closeLeft()" class="md-primary" hide-gt-md aria-label="Close Categories") Close  
+      md-button(ng-click="closeRight()" class="md-primary" hide-gt-md aria-label="Close Categories") Cerrar  
   md-content(flex)
-    md-button.back(ng-click="blog.toggleLeft()" class="md-primary" aria-label="Toggle Categories" hide-gt-md) Categorias
-    
+    md-button.back(ng-click="blog.toggleRight()" class="md-primary" aria-label="Toggle Categories" hide-gt-md) Categorias
     md-list
       md-item(ng-repeat="post in blog.posts")
         md-item-content
           //- md-whiteframe(class="md-whiteframe-z1" layout layout-align="center center" ng-class="{'md-whiteframe-z2': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false")
             //- img(ng-src="{{post.image.url}}" class="face img" ng-click="go('/post/'+post.slug)")
-          div(class="md-tile-content img" ng-click="go('/post/'+post.slug)" ng-style="{'background-image':'url(' + post.image.secure_url + ')'}")
+          div(class="md-tile-content img" ng-click="go('/post/'+post.slug)" ng-style="isMobile && {'background-image':'url(' + post.image.secure_url + ')'} || {'background-color': 'black'}")
             div(class="datos_post" ng-class="{'izquierda':$even,'derecha':$odd}")  
               h3 {{post.title}}
               h4 {{post.publishedDate | date:'longDate'}} 

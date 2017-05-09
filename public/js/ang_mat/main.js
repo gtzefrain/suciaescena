@@ -17,7 +17,7 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
     .primaryPalette('blue-grey')
     .accentPalette('orange')
 }])
-.controller('MainCtrl', ['$scope', '$interpolate', '$location', function($scope, $interpolate, $location) {
+.controller('MainCtrl', ['$scope', '$interpolate', '$location', '$window', function($scope, $interpolate, $location, $window) {
   var tabs = [
     { title: 'Blog', path: 'blog', idx: 0},
     { title: 'Galeria', path: 'gallery', idx: 1}  ,
@@ -33,6 +33,9 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
   $scope.onTabSelected = onTabSelected;
   $scope.announceSelected = announceSelected;
   $scope.announceDeselected = announceDeselected;
+
+  //check if mobile
+
 
   $scope.go = function ( tab, path ) {
     onTabSelected(tab);
@@ -62,6 +65,12 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
     });
     FB.AppEvents.logPageView();
   };
+  var w = window.innerWidth;
+  $scope.isMobile;
+  if (w <= 600)
+    $scope.isMobile = true;
+  else
+    $scope.isMobile = false;
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];

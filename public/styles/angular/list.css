@@ -144,8 +144,51 @@ background-size: cover
 strong{
   font-weight: bold !important;
 }
-@media (min-width:500px){/*Movil*/
-.md-{/*properties*/}
+@media (max-width:600px){/*Movil*/
+  .img{
+    height: 200px;
+  }
+
+  .datos_post{
+    position: relative;
+    color:black;
+    top: 0%;
+    overflow: auto;
+    text-shadow: none;
+    padding-left: 30px;
+  }
+  .datos_post > h3 {
+    font-size: 24px;
+  }
+  .derecha{
+    right: 0%;
+  }
+  .izquierda{
+    left: 0%;
+  }
+  .fondo_par{
+    background-color: #BCC8CE !important;
+  }
+  .fondo_impar{
+    background-color: #D6DEE1 !important;
+  }
+
+  .imagen_post{
+    position: relative;
+    top: 0%;
+    color:black;
+    padding-left: 30px;
+  }
+
+  .imagen_post > div{
+    height: 120px;
+    width: 120px;
+  }
+
+  .imagen_post > div > img{
+    height: 120px;
+    width: 120px;
+  }
 }
 /*Movil*/
 

@@ -104,6 +104,24 @@ background-size: cover
   color: white;
 }
 
+.float-button {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 60px;
+  /*padding: 30px;*/
+  font-size: 40px;
+  position: fixed;
+  top: 65px; /* Adjust to where you want it */
+  right: 20px; /* Adjust to where you want it */
+  z-index: 9999;
+}
+.float-button > i{
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+
 .post .titulo{
   margin-top: 40px;
   margin-bottom: 5px;

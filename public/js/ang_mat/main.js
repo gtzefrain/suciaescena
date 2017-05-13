@@ -22,7 +22,7 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
 .controller('MainCtrl', ['$scope', '$interpolate', '$location', '$window', function($scope, $interpolate, $location, $window) {
   var tabs = [
     { title: 'Blog', path: 'blog', idx: 0},
-    { title: 'Galeria', path: 'gallery', idx: 1}  ,
+    // { title: 'Galeria', path: 'gallery', idx: 1}  ,
     { title: 'Contacto', path: 'contact', idx: 2}
   ];
 

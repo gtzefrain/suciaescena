@@ -1,11 +1,12 @@
 var postServices = angular.module('postServices', ['ngResource']);
 
-postServices.factory('Post', ['$resource',
-  function($resource){
-    return $resource('api/post/:slug', {}, {
-      query: {method:'GET', params:{slug:'list'}, isArray:true}
-    });
-  }]);
+  postServices.factory('Post', ['$resource',
+    function($resource){
+      return $resource('api/post/:slug', {}, {
+        query: {method:'GET', params:{slug:'list'}, isArray:false}
+      });
+    }]);
+
 
 postServices.factory('PostCategory', ['$resource',
   function($resource){

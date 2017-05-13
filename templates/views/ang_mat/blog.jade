@@ -28,9 +28,10 @@ div(ng-controller="HomeCtrl as blog" layout="vertical" flex)
             div.imagen_post(flex-gt-sm="0" flex="50" hide-gt-sm)
               div
                 img(src="{{post.image.secure_url}}")
-
-        md-divider(ng-if="!$last" inset)
         
+        md-divider(ng-if="!$last" inset)
+      div(ng-repeat="page in blog.response.pages")
+        a(ng-href='#/blog?page={{page}}') {{page}}  
       //- md-list
       //-   md-item(ng-repeat="post in blog.posts")
       //-     md-item-content

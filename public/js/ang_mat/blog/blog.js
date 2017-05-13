@@ -7,23 +7,32 @@ angular.module('mainApp.blog', ['ngRoute'])
   $routeProvider.when('/blog/:key', {
     templateUrl: '/blog',
     controller: 'HomeCtrl',
-    reloadOnSearch: false
+  });
+
+  $routeProvider.when('/blog/:key:page', {
+    templateUrl: '/blog',
+    controller: 'HomeCtrl',
   });
 
   $routeProvider.when('/blog', {
     templateUrl: '/blog',
     controller: 'HomeCtrl',
-    reloadOnSearch: false
+  });
+
+  $routeProvider.when('/blog:page', {
+    templateUrl: '/blog',
+    controller: 'HomeCtrl',
   });
 }])
 
-.controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', '$routeParams', '$scope', '$location', '$mdSidenav', function(Post, PostByCategory, PostCategory, $routeParams, $scope, $location, $mdSidenav, $media, $mdUtil) {
+.controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', '$routeParams', '$scope', '$location', '$mdSidenav', '$route', function(Post, PostByCategory, PostCategory, $routeParams, $scope, $location, $mdSidenav, $media, $mdUtil, $route) {
   var blog = this;
 
   console.log($scope.isMobile);
 
-  blog.posts = [];
-
+  blog.response = {};
+  blog.posts = {};
+  blog.currentPage = {}
   function buildToggler(navID) {
     var debounceFn =  $mdUtil.debounce(function(){
           $mdSidenav(navID)
@@ -36,17 +45,39 @@ angular.module('mainApp.blog', ['ngRoute'])
     return debounceFn;
   }
 
+  function initScope() {
+      if ($routeParams.key != null){
+        blog.posts = PostByCategory.query({key:$routeParams.key});
+      }
+      if ($routeParams.page != null) {
+        blog.posts = Post.query({page:$routeParams.page},function (response) {
+          var posts = []
+          angular.forEach(response, function (item) {
+              posts.push(item)
+          });
+          blog.response = posts[0]
+          console.log(blog.response);
+          blog.posts = blog.response.results;
+        })
+      }
+      else{
+        blog.posts = Post.query(function (response) {
+          var posts = []
+          angular.forEach(response, function (item) {
+              posts.push(item)
+          });
+          blog.response = posts[0]
+          console.log(blog.response);
+          blog.posts = blog.response.results;
+        });
+      }
 
-  if ($routeParams.key != null)
-    blog.posts = PostByCategory.query({key:$routeParams.key});
-  else
-    blog.posts = Post.query();
+      blog.categories = [{key:'list', name:'All'}];
 
-  blog.categories = [{key:'list', name:'All'}];
-
-  blog.categories = PostCategory.query(function(){
-    blog.categories.unshift({key:'list', name:'All'});
-  });
+      blog.categories = PostCategory.query(function(){
+        blog.categories.unshift({key:'list', name:'All'});
+      });
+  }
 
   $scope.go = function ( path ) {
     $location.path( path );
@@ -68,8 +99,22 @@ angular.module('mainApp.blog', ['ngRoute'])
     }
   };
 
+  $scope.getPage = function(page){
+    blog.posts = Post.query(2, function (response) {
+      var posts = []
+      angular.forEach(response, function (item) {
+          posts.push(item)
+      });
+      blog.response = posts[0]
+      console.log(blog.response);
+      blog.posts = blog.response.results;
+    })
+  }
   $scope.closeRight = function() {
     $mdSidenav('right').close();
   };
+
+  initScope();
+
 
 }]);

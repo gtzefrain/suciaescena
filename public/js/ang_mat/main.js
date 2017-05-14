@@ -14,10 +14,10 @@ angular.module('mainApp', [
 config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemingProvider) {
   $routeProvider.otherwise({redirectTo: '/blog'});
   $mdThemingProvider.theme('default')
-    .primaryPalette('indigo',{
-      'default': '400'
+    .primaryPalette('teal',{
+      'default': '300'
     })
-    .accentPalette('orange')
+    .accentPalette('orange', {'default': '200' })
 }])
 .controller('MainCtrl', ['$scope', '$interpolate', '$location', '$window', function($scope, $interpolate, $location, $window) {
   var tabs = [

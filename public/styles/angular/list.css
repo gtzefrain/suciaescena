@@ -14,6 +14,16 @@ body{
   padding-right: 20px;
 }
 
+.page{
+  color: white;
+  /*height: 25px;*/
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
+  box-shadow: 1px 2px 1px #D96C5B;
+}
+
 .md-center-tabs {
         margin: 0;
         margin-left: auto;
@@ -91,9 +101,15 @@ background-size: cover
 }
 
 .back{
-  background-color: rgb(124, 164, 183);
+  background-color: #FFA091;
   width: 100%;
   height: 40px;
+}
+
+.top{
+  text-align: center;
+  display: block;
+  padding-top: 10px;
 }
 .back >span {
   font-size: 12px;
@@ -169,26 +185,20 @@ strong{
 
   .datos_post{
     position: relative;
-    color:black;
+    /*color:black;*/
     top: 0%;
     overflow: auto;
-    text-shadow: none;
+    /*text-shadow: none;*/
     padding-left: 30px;
   }
   .datos_post > h3 {
     font-size: 24px;
   }
   .derecha{
-    right: 0%;
+    right: 20%;
   }
   .izquierda{
-    left: 0%;
-  }
-  .fondo_par{
-    background-color: #BCC8CE !important;
-  }
-  .fondo_impar{
-    background-color: #D6DEE1 !important;
+    left: 20%;
   }
 
   .imagen_post{

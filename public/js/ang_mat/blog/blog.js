@@ -47,16 +47,27 @@ angular.module('mainApp.blog', ['ngRoute'])
 
   function initScope() {
       if ($routeParams.key != null){
-        blog.posts = PostByCategory.query({key:$routeParams.key});
+        if ($routeParams.key == 'all') {
+          blog.posts = Post.query(function (response) {
+            var posts = []
+            angular.forEach(response, function (item) {
+                posts.push(item)
+            });
+            blog.response = posts[0]
+            console.log(blog.response);
+            blog.posts = blog.response.results;
+          });
+        }else {
+          blog.posts = PostByCategory.query({key:$routeParams.key});
+        }
       }
-      if ($routeParams.page != null) {
+      else if ($routeParams.page != null) {
         blog.posts = Post.query({page:$routeParams.page},function (response) {
           var posts = []
           angular.forEach(response, function (item) {
               posts.push(item)
           });
           blog.response = posts[0]
-          console.log(blog.response);
           blog.posts = blog.response.results;
         })
       }
@@ -67,15 +78,14 @@ angular.module('mainApp.blog', ['ngRoute'])
               posts.push(item)
           });
           blog.response = posts[0]
-          console.log(blog.response);
           blog.posts = blog.response.results;
         });
       }
 
-      blog.categories = [{key:'list', name:'All'}];
+      blog.categories = [{key:'', name:'Todos'}];
 
       blog.categories = PostCategory.query(function(){
-        blog.categories.unshift({key:'list', name:'All'});
+        blog.categories.unshift({key:'', name:'Todos'});
       });
   }
 

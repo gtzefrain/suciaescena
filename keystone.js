@@ -30,9 +30,9 @@ keystone.init({
 	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/suciaescena',
 	'cloudinary config': process.env.CLOUDINARY_URL || 'cloudinary://333779167276662:_8jbSi9FB3sWYrfimcl8VKh34rI@keystone-demo',
 
-	'ssl': true,
-	'ssl cert':'../../etc/letsencrypt/renewal/www.suciaescena.com.conf',
-	'ssl port':process.env.PORT
+	// 'ssl': true,
+	// 'ssl cert':'../../etc/letsencrypt/renewal/www.suciaescena.com.conf',
+	// 'ssl port':process.env.PORT
 });
 
 // Load your project's Models

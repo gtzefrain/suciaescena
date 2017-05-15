@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 // Declare app level module which depends on views, and components
 angular.module('mainApp', [
@@ -9,8 +9,7 @@ angular.module('mainApp', [
   'mainApp.post',
   'mainApp.gallery',
   'mainApp.contact',
-  'postServices'
-]).
+  'postServices']).
 config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemingProvider) {
   $routeProvider.otherwise({redirectTo: '/blog'});
   $mdThemingProvider.theme('default')
@@ -18,6 +17,8 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
       'default': '300'
     })
     .accentPalette('orange', {'default': '200' })
+}]).config(['$locationProvider', function($locationProvider) {
+  $locationProvider.hashPrefix('!');
 }])
 .controller('MainCtrl', ['$scope', '$interpolate', '$location', '$window', function($scope, $interpolate, $location, $window) {
   var tabs = [

@@ -7,21 +7,45 @@ angular.module('mainApp.blog', ['ngRoute'])
   $routeProvider.when('/blog/:key', {
     templateUrl: '/blog',
     controller: 'HomeCtrl',
+    // data: {
+    //   meta: {
+    //     'title': 'Home',
+    //     'description': 'Medio LoFi Mexicano'
+    //   }
+    // }
   });
 
   $routeProvider.when('/blog/:key:page', {
     templateUrl: '/blog',
     controller: 'HomeCtrl',
+    data: {
+      meta: {
+        'title': 'Home',
+        'description': 'Medio LoFi Mexicano'
+      }
+    }
   });
 
   $routeProvider.when('/blog', {
     templateUrl: '/blog',
     controller: 'HomeCtrl',
+    data: {
+      meta: {
+        'title': 'Home',
+        'description': 'Medio LoFi Mexicano'
+      }
+    }
   });
 
   $routeProvider.when('/blog:page', {
     templateUrl: '/blog',
     controller: 'HomeCtrl',
+    data: {
+      meta: {
+        'title': 'Home',
+        'description': 'Medio LoFi Mexicano'
+      }
+    }
   });
 }])
 

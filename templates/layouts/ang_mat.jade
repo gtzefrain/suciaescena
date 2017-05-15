@@ -8,8 +8,7 @@ html(ng-app="mainApp" class="no-js")
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    meta(property="og:description" content="Medio Lo Fi Mexicano")
-
+    meta(name="fragment" content="!")
     title= title || 'Sucia Escena'
     link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 
@@ -42,6 +41,7 @@ html(ng-app="mainApp" class="no-js")
     script(src='/js/lib/hammerjs/hammer.js')
     script(src='/js/lib/angular-material/angular-material.js')
     script(src='/js/lib/angular-resource/angular-resource.js')
+    script(src='/js/lib/ngMeta/dist/ngMeta.js')
 
     //- Include template-specific javascript files by extending the js block
     block js

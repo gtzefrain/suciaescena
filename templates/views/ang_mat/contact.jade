@@ -1,11 +1,21 @@
 doctype html
 .container(ng-controller="ContactCtrl as contactCtrl" style="width:100%;")
-  md-content(flex style="margin-top:10%;")
-    div(layout="row" layout-sm="column" flex)
-      div.contacto_iconos(flex="30")
+  md-content(flex style="margin-top:5%;")
+    div.redes(layout="row" layout-sm="column" layout-align="space-around center" flex)
+      a(href="https://www.facebook.com/suciaescena" target="_blank")
+        h3 Nuestro Facebook
         i.fa.fa-facebook-square
-      div.contacto_iconos(flex="30")
-        i.fa.fa-youtube-play
-      div.contacto_iconos(flex="30")
+      a(href="https://www.instagram.com/suciaescenamx" target="_blank")
+        h3 Siguennos en Instagram
         i.fa.fa-instagram
-    
+      a(href="mailto:suciaescena@gmail.com")
+        h3 Mandanos un Mail
+        i.fa.fa-envelope-o
+        br
+        | suciaescena@gmail.com    
+    md-divider(inset style="margin-top:25px;margin-bottom:25px;")
+    div(layout="row" layout-align="center start" flex)
+      a(href="https://www.youtube.com/channel/UCB7fQRV3z0mv4O85noXHEpw" target="_blank")
+        h3 Youtube
+    div(layout="row" layout-align="center start" flex)
+      iframe.video(width="560" height="315" src="https://www.youtube.com/embed/MEW0OB6DgXc" frameborder="0" allowfullscreen)

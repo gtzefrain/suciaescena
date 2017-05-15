@@ -18,7 +18,7 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
     })
     .accentPalette('orange', {'default': '200' })
 }]).config(['$locationProvider', function($locationProvider) {
-  $locationProvider.hashPrefix('!');
+  $locationProvider.html5Mode(true);
 }])
 .controller('MainCtrl', ['$scope', '$interpolate', '$location', '$window', function($scope, $interpolate, $location, $window) {
   var tabs = [
@@ -60,7 +60,7 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
     $scope.greeting = $interpolate("Hello {{title}}!")(tab);
   }
 
-    window.fbAsyncInit = function() {
+  window.fbAsyncInit = function() {
     FB.init({
       appId      : '1428305917226576',
       xfbml      : true,
@@ -81,5 +81,5 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
      js = d.createElement(s); js.id = id;
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'))
+   }(document, 'script', 'facebook-jssdk'));
 }]);

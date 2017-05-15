@@ -2,14 +2,32 @@ include ../mixins/flash-messages
 
 doctype html
 html(ng-app="mainApp" class="no-js")
-
+  base(href="/")
+  
   //- HTML HEADER
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="fragment" content="!")
-    title= title || 'Sucia Escena'
+    //- title {{data.post.title}}
+    //- meta(property="og:title" content="{{data.post.title}")
+    //- meta(name="twitter:title" content="{{data.post.title}}")
+    //- meta(name="description" content="{{data.post.content.brief}}")
+    //- meta(property="og:description" content="{{data.post.content.brief}}")
+    //- meta(name="twitter:description" content="{{data.post.content.brief}}")
+    //- 
+    //- meta(property="og:type" content="article")
+    //- meta(name="twitter:card" content="summary_large_image")
+    //- meta(property="og:image" content="{{data.post.image.url}}")
+    //- meta(name="twitter:image:src" content="{{data.post.image.url}}")
+    //- meta(property="og:url" content="{{data.post.fullPostUrl}}")
+    //- meta(name="twitter:url" content="{{data.post.fullPostUrl}}")
+    //- meta(property="article:published_time" content="{{data.post.publishedDate}}")
+    title Sucia Escena
+    //- meta(name="description" content="general description")            
+      //- meta(property="og:image" content="{{baseUrl}}/images/logo.png")
+      //- meta(name="twitter:image:src" content="{{baseUrl}}/images/logo.png")
     link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 
     //- Customise the stylesheet for your site by editing /public/styles/site.less

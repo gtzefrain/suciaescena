@@ -22,6 +22,9 @@ var _ = require('lodash'),
 	keystone = require('keystone'),
 	middleware = require('./middleware'),
 	importRoutes = keystone.importer(__dirname);
+	express = require('express');
+	app = express()
+
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -82,4 +85,18 @@ exports = module.exports = function(app) {
 	app.get('/ang_bootm/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.gallery);
 	app.get('/ang_bootm/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.contact);
 
+	app.all('/*', routes.ang_mat.app , function(req, res) {
+    res.render('/blog');
+  });
+	// app.all("/*", [keystone.middleware.api, keystone.middleware.cors] , routes.ang_mat.blog)
+	//
+	// app.use('/js', __dirname + '/js');
+	// app.use('/dist', __dirname + '/../dist');
+	// app.use('/css', __dirname + '/css');
+	// app.use('/partials', __dirname + '/partials'	);
 };
+
+// app.get('/*', function(req, res){
+// 	console.log('epa');
+// 	res.sendfile( indexPath + '/index.html' );
+// });

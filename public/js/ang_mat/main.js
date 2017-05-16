@@ -20,6 +20,10 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
 }]).config(['$locationProvider', function($locationProvider) {
   $locationProvider.html5Mode(true);
 }])
+// .run(['$location',
+//     function ($location) {
+//         $location.path('/blog');
+//     }])
 .controller('MainCtrl', ['$scope', '$interpolate', '$location', '$window', function($scope, $interpolate, $location, $window) {
   var tabs = [
     { title: 'Blog', path: 'blog', idx: 0},

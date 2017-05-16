@@ -28,5 +28,10 @@ Post.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
 });
 
+//in models/Post.js
+Post.schema.virtual('fullPostUrl').get(function() {
+  return keystone.get('baseUrl') + 'blog/post/api' + this.slug;
+});
+
 Post.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
 Post.register();

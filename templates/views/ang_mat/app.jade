@@ -22,7 +22,7 @@ block app
   div(ng-controller="MainCtrl as main" md-theme="default" layout="column" layout-fill)
     md-toolbar(class="app-toolbar")
       div(class="md-toolbar-tools")
-        a(ng-href='/blog')
+        a(ng-href='/#/blog')
           img.logo(src='/images/suciaescenalogo.png' alt="sucia escena")
         md-tabs(md-center-tabs="true" selected="selectedIndex")
           md-tab(ng-repeat="tab in tabs" on-select="onTabSelected(tab)" on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="{{tab.title}}" ng-click="go(tab, '/' + tab.path)")

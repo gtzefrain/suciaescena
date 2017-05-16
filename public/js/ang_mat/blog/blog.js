@@ -7,12 +7,12 @@ angular.module('mainApp.blog', ['ngRoute'])
   $routeProvider.when('/blog/:key', {
     templateUrl: '/blog',
     controller: 'HomeCtrl',
-    // data: {
-    //   meta: {
-    //     'title': 'Home',
-    //     'description': 'Medio LoFi Mexicano'
-    //   }
-    // }
+    data: {
+      meta: {
+        'title': 'Home',
+        'description': 'Medio LoFi Mexicano'
+      }
+    }
   });
 
   $routeProvider.when('/blog/:key:page', {
@@ -49,7 +49,7 @@ angular.module('mainApp.blog', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', '$routeParams', '$scope', '$location', '$mdSidenav', '$route', function(Post, PostByCategory, PostCategory, $routeParams, $scope, $location, $mdSidenav, $media, $mdUtil, $route) {
+.controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', '$routeParams', '$scope', '$location', '$mdSidenav', '$mdUtil', '$route', '$timeout',function(Post, PostByCategory, PostCategory, $routeParams, $scope, $location, $mdSidenav, $mdUtil, $route, $timeout,) {
   var blog = this;
 
   console.log($scope.isMobile);
@@ -119,7 +119,9 @@ angular.module('mainApp.blog', ['ngRoute'])
 
   blog.toggleRight = function() {
     $mdSidenav('right').toggle();
+    $scope.goToSideNav();
   };
+
 
   $scope.refreshPosts = function(the_key) {
     if (the_key == 'list'){

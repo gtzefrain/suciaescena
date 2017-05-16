@@ -94,6 +94,13 @@ background-size: cover
   left: 5%;
 }
 
+.cat {
+  color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+}
+
 /*Post*/
 .art-img{
   margin-top: 10px;

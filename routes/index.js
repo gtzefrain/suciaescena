@@ -72,11 +72,11 @@ exports = module.exports = function(app) {
 	app.get('/api/enquiry_type/:value', [keystone.middleware.api, keystone.middleware.cors], routes.api.enquiry_types.get);
 
 	// App Routes for Angular Material Project
-	app.get('/', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.app);
-	app.get('/blog', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.blog);
-	app.get('/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.post);
-	app.get('/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.gallery);
-	app.get('/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.contact);
+	app.get('/ang_mat', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.app);
+	app.get('/ang_mat/blog', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.blog);
+	app.get('/ang_mat/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.post);
+	app.get('/ang_mat/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.gallery);
+	app.get('/ang_mat/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.contact);
 
 	// App Routes for Angular Bootstrap Material Project
 	app.get('/ang_bootm', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.app);
@@ -84,8 +84,8 @@ exports = module.exports = function(app) {
 	app.get('/ang_bootm/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.post);
 	app.get('/ang_bootm/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.gallery);
 	app.get('/ang_bootm/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.contact);
-
-	app.all('/*', routes.ang_mat.app , function(req, res) {
+	//
+	app.get('/*', routes.ang_mat.app , function(req, res) {
     res.render('/blog');
   });
 	// app.all("/*", [keystone.middleware.api, keystone.middleware.cors] , routes.ang_mat.blog)

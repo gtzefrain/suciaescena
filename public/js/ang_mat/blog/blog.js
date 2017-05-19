@@ -5,7 +5,7 @@ angular.module('mainApp.blog', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/blog/:key', {
-    templateUrl: '/blog',
+    templateUrl: '/ang_mat/blog',
     controller: 'HomeCtrl',
     data: {
       meta: {
@@ -16,7 +16,7 @@ angular.module('mainApp.blog', ['ngRoute'])
   });
 
   $routeProvider.when('/blog/:key:page', {
-    templateUrl: '/blog',
+    templateUrl: '/ang_mat/blog',
     controller: 'HomeCtrl',
     data: {
       meta: {
@@ -27,7 +27,7 @@ angular.module('mainApp.blog', ['ngRoute'])
   });
 
   $routeProvider.when('/blog', {
-    templateUrl: '/blog',
+    templateUrl: '/ang_mat/blog',
     controller: 'HomeCtrl',
     data: {
       meta: {
@@ -38,7 +38,7 @@ angular.module('mainApp.blog', ['ngRoute'])
   });
 
   $routeProvider.when('/blog:page', {
-    templateUrl: '/blog',
+    templateUrl: '/ang_mat/blog',
     controller: 'HomeCtrl',
     data: {
       meta: {

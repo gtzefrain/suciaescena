@@ -4,7 +4,7 @@ angular.module('mainApp.post', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/post/:slug', {
-    templateUrl: '/post',
+    templateUrl: '/ang_mat/post',
     controller: 'PostCtrl',
     // data: {
     //   meta: {

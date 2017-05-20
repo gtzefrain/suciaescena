@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "node keystone.js",
-    "postinstall": "bower install"
+    "postinstall": "bower install --allow-root"
   },
   "main": "keystone.js"
 }

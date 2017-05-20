@@ -1,51 +1,53 @@
 doctype html
-div(ng-controller="HomeCtrl as blog" layout="vertical" flex)
-  md-sidenav.md-sidenav-right.md-whiteframe-4dp(id="right" md-component-id="right" flex)
-    md-toolbar
-      h1.cat.md-toolbar-tools Categorias
-    md-content(layout-padding="")
-      md-button(ng-repeat="category in blog.categories" ng-click="go('/blog/' + category.key)" class="md-primary" aria-label="Show Category {{category.name}}") {{category.name}}
-        md-divider(inset)
-      md-button(ng-click="closeRight()" class="md-primary" hide-gt-md aria-label="Close Categories") Cerrar  
-  div.float-button
-    i.fa.fa-bars(ng-click="blog.toggleRight()" hide-xs hide-sm hide-md)
-  md-content(flex)
-    div.back.top(ng-click="blog.toggleRight()" class="md-primary" aria-label="Toggle Categories" hide-gt-md layout-align="center center")
-      span CATEGORIAS 
-    md-list
-      md-item(ng-repeat="post in blog.posts")
-        md-item-content
-          //- md-whiteframe(class="md-whiteframe-z1" layout layout-align="center center" ng-class="{'md-whiteframe-z2': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false")
-            //- img(ng-src="{{post.image.url}}" class="face img" ng-click="go('/post/'+post.slug)")
-          div(class="md-tile-content img" layout="row" layout-align="space-around center" ng-click="go('/post/'+post.slug)" ng-style="!isMobile && {'background-image':'url(' + post.image.secure_url + ')'} || {'background-image':'url(' + post.image.secure_url + ')'}" )
-            div.datos_post(flex-gt-sm="100" flex="50" ng-class="{'izquierda':$even,'derecha':$odd}")  
-              h3 {{post.title}}
-              h4 {{post.publishedDate | date:'longDate'}} 
-              span(ng-repeat="category in post.categories")
-                a(href="" ng-click="go('/blog/' + category.key)") {{category.name}}
-                  //- md-button(ng-click="refreshPosts(category.key)") {{category.name}}
-                  | {{$last ? ' ' : ', '}}
-                //- {{post.content.brief}}
-              //- div(ng-bind-html="post.content.brief")
-                //- a(href="app#/post/{{post.slug}}") Read
-                //- div(class="md-tile-right")
-            //- div.imagen_post(flex-gt-sm="0" flex="50" hide-gt-sm)
-            //-   div
-            //-     img(src="{{post.image.secure_url}}")
-        
-        md-divider(ng-if="!$last" inset)
-      div.back(class="md-primary" ng-if="blog.response.pages" aria-label="Toggle Categories" layout="row" layout-align="space-around center")
-        div(layout="row" layout-align="center center" flex)
-          a.previous.page(ng-if="blog.response.previous" ng-href='#/blog?page={{blog.response.previous}}') <<
-        div(layout="row" layout-align="center center" flex)
-          a.page(ng-repeat="page in blog.response.pages" ng-href='#/blog?page={{page}}') {{page}}  
-        div(layout="row" layout-align="center center" flex)
-          a.next.page(ng-if="blog.response.next" ng-href='#/blog?page={{blog.response.next}}') >>
+head
+body
+  div(ng-controller="HomeCtrl as blog" layout="vertical" flex)
+    md-sidenav.md-sidenav-right.md-whiteframe-4dp(id="right" md-component-id="right" flex)
+      md-toolbar
+        h1.cat.md-toolbar-tools Categorias
+      md-content(layout-padding="")
+        md-button(ng-repeat="category in blog.categories" ng-click="go('/blog/' + category.key)" class="md-primary" aria-label="Show Category {{category.name}}") {{category.name}}
+          md-divider(inset)
+        md-button(ng-click="closeRight()" class="md-primary" hide-gt-md aria-label="Close Categories") Cerrar  
+    div.float-button
+      i.fa.fa-bars(ng-click="blog.toggleRight()" hide-xs hide-sm hide-md)
+    md-content(flex)
+      div.back.top(ng-click="blog.toggleRight()" class="md-primary" aria-label="Toggle Categories" hide-gt-md layout-align="center center")
+        span CATEGORIAS 
+      md-list
+        md-item(ng-repeat="post in blog.posts")
+          md-item-content
+            //- md-whiteframe(class="md-whiteframe-z1" layout layout-align="center center" ng-class="{'md-whiteframe-z2': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false")
+              //- img(ng-src="{{post.image.url}}" class="face img" ng-click="go('/post/'+post.slug)")
+            div(class="md-tile-content img" layout="row" layout-align="space-around center" ng-click="go('/post/'+post.slug)" ng-style="!isMobile && {'background-image':'url(' + post.image.secure_url + ')'} || {'background-image':'url(' + post.image.secure_url + ')'}" )
+              div.datos_post(flex-gt-sm="100" flex="50" ng-class="{'izquierda':$even,'derecha':$odd}")  
+                h3 {{post.title}}
+                h4 {{post.publishedDate | date:'longDate'}} 
+                span(ng-repeat="category in post.categories")
+                  a(href="" ng-click="go('/blog/' + category.key)") {{category.name}}
+                    //- md-button(ng-click="refreshPosts(category.key)") {{category.name}}
+                    | {{$last ? ' ' : ', '}}
+                  //- {{post.content.brief}}
+                //- div(ng-bind-html="post.content.brief")
+                  //- a(href="app#/post/{{post.slug}}") Read
+                  //- div(class="md-tile-right")
+              //- div.imagen_post(flex-gt-sm="0" flex="50" hide-gt-sm)
+              //-   div
+              //-     img(src="{{post.image.secure_url}}")
+          
+          md-divider(ng-if="!$last" inset)
+        div.back(class="md-primary" ng-if="blog.response.pages" aria-label="Toggle Categories" layout="row" layout-align="space-around center")
+          div(layout="row" layout-align="center center" flex)
+            a.previous.page(ng-if="blog.response.previous" ng-href='/blog?page={{blog.response.previous}}') <<
+          div(layout="row" layout-align="center center" flex)
+            a.page(ng-repeat="page in blog.response.pages" ng-href='/blog?page={{page}}') {{page}}  
+          div(layout="row" layout-align="center center" flex)
+            a.next.page(ng-if="blog.response.next" ng-href='#/blog?page={{blog.response.next}}') >>
 
-      //- md-list
-      //-   md-item(ng-repeat="post in blog.posts")
-      //-     md-item-content
-      //-       p {{post}}
-      //-       div(ng-style="{'background-image': 'url(' + post.url + ')'}")
-      //-     md-divider(ng-if="!$last" inset)    
-      //- 
+        //- md-list
+        //-   md-item(ng-repeat="post in blog.posts")
+        //-     md-item-content
+        //-       p {{post}}
+        //-       div(ng-style="{'background-image': 'url(' + post.url + ')'}")
+        //-     md-divider(ng-if="!$last" inset)    
+        //- 

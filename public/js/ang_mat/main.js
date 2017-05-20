@@ -5,6 +5,7 @@ angular.module('mainApp', [
   'ngRoute',
   'ngMaterial',
   'ngSanitize',
+  'ngMeta',
   'mainApp.blog',
   'mainApp.post',
   'mainApp.gallery',
@@ -24,6 +25,9 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
 //     function ($location) {
 //         $location.path('/blog');
 //     }])
+.run(['ngMeta', function(ngMeta) {
+  ngMeta.init();
+}])
 .controller('MainCtrl', ['$scope', '$interpolate', '$location', '$window', function($scope, $interpolate, $location, $window) {
   var tabs = [
     { title: 'Blog', path: 'blog', idx: 0},

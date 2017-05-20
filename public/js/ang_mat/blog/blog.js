@@ -3,7 +3,7 @@
 angular.module('mainApp.blog', ['ngRoute'])
 
 
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', function($routeProvider, ngMetaProvider) {
   $routeProvider.when('/blog/:key', {
     templateUrl: '/ang_mat/blog',
     controller: 'HomeCtrl',
@@ -11,6 +11,7 @@ angular.module('mainApp.blog', ['ngRoute'])
       meta: {
         'title': 'Home',
         'description': 'Medio LoFi Mexicano'
+      //  'image':
       }
     }
   });

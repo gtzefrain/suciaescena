@@ -25,6 +25,9 @@ var _ = require('lodash'),
 	express = require('express');
 	app = express()
 
+	app.use(require('prerender-node'));
+
+
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);

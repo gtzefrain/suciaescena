@@ -126,6 +126,10 @@ background-size: cover
   color: grey;
 }
 
+.post > .subtitulo{
+  font-size: 14px;
+}
+
 .back{
   background-color: #FFA091;
   width: 100%;
@@ -211,6 +215,10 @@ vertical-align: middle;
 .md-button.md-default-theme {
   border-radius: 0px;
 }
+
+.category{
+  margin-bottom: 10px;
+}
 /*Tablet*/
 .social{
   min-height: 0px;
@@ -225,6 +233,14 @@ strong{
   }
   .redes{
     font-size: 12px;
+  }
+
+  .art-img{
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
   }
 
   .datos_post{

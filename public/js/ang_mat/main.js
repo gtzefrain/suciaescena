@@ -20,6 +20,7 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
     .accentPalette('orange', {'default': '200' })
 }]).config(['$locationProvider', function($locationProvider) {
   $locationProvider.html5Mode(true);
+  $locationProvider.hashPrefix('!');
 }])
 // .run(['$location',
 //     function ($location) {

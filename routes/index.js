@@ -25,7 +25,7 @@ var _ = require('lodash'),
 	express = require('express');
 	app = express()
 
-	app.use(require('prerender-node'));
+	app.use(require('prerender-node').set('prerenderToken', 'P0duudxFrGNFUGmh8FQt'));
 
 
 

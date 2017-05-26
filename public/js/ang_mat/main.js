@@ -5,12 +5,13 @@ angular.module('mainApp', [
   'ngRoute',
   'ngMaterial',
   'ngSanitize',
-  'ngMeta',
   'mainApp.blog',
   'mainApp.post',
   'mainApp.gallery',
   'mainApp.contact',
-  'postServices']).
+  'postServices',
+  'ngMeta',
+  'seo']).
 config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemingProvider) {
   $routeProvider.otherwise({redirectTo: '/blog'});
   $mdThemingProvider.theme('default')
@@ -26,7 +27,7 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
 //     function ($location) {
 //         $location.path('/blog');
 //     }])
-.run(['ngMeta', function(ngMeta) {
+.run(['ngMeta','$rootScope', function(ngMeta, $rootScope) {
   ngMeta.init();
 }])
 .controller('MainCtrl', ['$scope', '$interpolate', '$location', '$window', function($scope, $interpolate, $location, $window) {

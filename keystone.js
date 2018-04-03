@@ -20,7 +20,6 @@ keystone.init({
 	'views': 'templates/views',
 	'view engine': 'jade',
 
-
 	'auto update': true,
 	'session': true,
 	'auth': true,
@@ -33,8 +32,15 @@ keystone.init({
 	// 'ssl': true,
 	// 'ssl cert':'../../etc/letsencrypt/renewal/www.suciaescena.com.conf',
 	// 'ssl port':process.env.PORT
+
+	//wysiwyg conf
+	'wysiwyg images': true,
+	'wysiwyg additional plugins': 'media mediaembed',
+	'wysiwyg additional buttons': 'media, blockquote, searchreplace'
+	
 });
 
+keystone.set('frame guard', false);
 // Load your project's Models
 
 keystone.import('models');

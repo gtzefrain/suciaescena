@@ -42,7 +42,9 @@ a:active {
   padding-right: 6px;
   box-shadow: 1px 2px 1px #D96C5B;
 }
-
+md-content{
+	overflow: hidden;
+}
 .md-center-tabs {
         margin: 0;
         margin-left: auto;
@@ -71,7 +73,6 @@ md-sidenav.md-closed.md-locked-open-add-active {
 }
 
 .img{
-width: 100%;
 height: 300px;
 position: relative;
 background-attachment: fixed;
@@ -102,10 +103,20 @@ background-size: cover
 }
 
 /*Post*/
+
 .art-img{
   margin-top: 10px;
-  width: 400px;
+  width: 650px;
   margin-bottom: 20px;
+  margin: 15px;
+	max-height: 
+}
+
+p > img {
+	    display: block;
+    margin: 0 auto;
+	    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .center{
@@ -128,6 +139,13 @@ background-size: cover
 
 .post > .subtitulo{
   font-size: 14px;
+	margin-left: 20px;
+    margin-right: 20px;
+	margin-bottom: 5px
+}
+
+.fb_iframe_widget{
+	margin: 15px !important;
 }
 
 .back{
@@ -184,7 +202,7 @@ vertical-align: middle;
 
 
 .post .titulo{
-  margin-top: 40px;
+  margin-top:  35px;
   margin-bottom: 5px;
 }
 
@@ -227,6 +245,7 @@ vertical-align: middle;
 strong{
   font-weight: bold !important;
 }
+
 @media (max-width:600px){/*Movil*/
   .img{
     height: 200px;
@@ -236,12 +255,9 @@ strong{
   }
 
   .art-img{
-    width: 100%;
+    width: 90%;
   }
 
-  img {
-    width: 100%;
-  }
 
   .datos_post{
     position: relative;
@@ -279,7 +295,7 @@ strong{
   }
 }
 /*Movil*/
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
 .post .texto{
   font-size: 18px;
   padding-left: 10%;

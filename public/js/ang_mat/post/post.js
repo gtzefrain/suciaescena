@@ -31,7 +31,7 @@ angular.module('mainApp.post', ['ngRoute'])
     div.innerHTML = html;
     self.post.content.brief = div.innerText;
     ngMeta.setTitle(self.post.title,''); //Title = Eluvium
-    ngMeta.setTag('description', div.innerText)
-    ngMeta.setTag('image', self.post.image.secure_url);
-  });
+    ngMeta.setTag('description', String(self.post.content.brief));
+    ngMeta.setTag('image', String(self.post.image.secure_url));
+  });	
 }]);

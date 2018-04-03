@@ -279,6 +279,15 @@ strong{
   }
 }
 /*Movil*/
+@media only screen and (max-width: 600px) {
+.post .texto{
+  font-size: 18px;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: left;
+}
+}
+
 
 /*.md-tab-themed{
 width: 80px;

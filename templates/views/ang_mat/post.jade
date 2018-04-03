@@ -16,6 +16,9 @@ div(ng-controller="PostCtrl as postctrl" layout="vertical" layout-fill)
     md-divider( inset)  
     img(ng-src="{{postctrl.post.image.url}}" class="art-img")
     div.texto(ng-bind-html="postctrl.post.content.extended")
+    a(href="" ng-click="go('/blog')") 
+      div.back 
+        p &larr; Regresar al blog	
     md-divider(inset style="margin-bottom:10px;")
     div.category
       span(ng-repeat="category in postctrl.post.categories") 

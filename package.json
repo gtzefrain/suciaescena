@@ -13,6 +13,7 @@
     "jade": "^1.11.0",
     "keystone": "^4.0.0-beta.1",
     "lodash": "^3.10.1",
+    "mongodb": "^3.0.2",
     "prerender-node": "^2.7.1"
   },
   "scripts": {

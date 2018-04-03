@@ -6,5 +6,6 @@ exports = module.exports = function(req, res) {
     locals = res.locals;
   
   // Render the view
+	console.log(req)
   view.render('ang_bootm/post');
 };

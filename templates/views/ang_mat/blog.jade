@@ -12,7 +12,7 @@ body
     div.float-button
       i.fa.fa-bars(ng-click="blog.toggleRight()" hide-xs hide-sm hide-md)
     md-content(flex)
-      div.back.top(ng-click="blog.toggleRight()" class="md-primary" aria-label="Toggle Categories" hide-gt-md layout-align="center center")
+      div.back.top(ng-click="blog.toggleRight()"  class="md-primary" aria-label="Toggle Categories" hide-gt-md layout-align="center center")
         span CATEGORIAS 
       md-list
         md-item(ng-repeat="post in blog.posts")
@@ -42,7 +42,7 @@ body
           div(layout="row" layout-align="center center" flex)
             a.page(ng-repeat="page in blog.response.pages" ng-href='/blog?page={{page}}') {{page}}  
           div(layout="row" layout-align="center center" flex)
-            a.next.page(ng-if="blog.response.next" ng-href='#/blog?page={{blog.response.next}}') >>
+            a.next.page(ng-if="blog.response.next" ng-href='/blog?page={{blog.response.next}}') >>
 
         //- md-list
         //-   md-item(ng-repeat="post in blog.posts")

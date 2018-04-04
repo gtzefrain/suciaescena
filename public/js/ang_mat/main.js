@@ -13,11 +13,19 @@ angular.module('mainApp', [
   'ngMeta']).
 config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemingProvider) {
   $routeProvider.otherwise({redirectTo: '/blog'});
-  $mdThemingProvider.theme('default')
-    .primaryPalette('teal',{
-      'default': '300'
-    })
-    .accentPalette('orange', {'default': '200' })
+  // theme
+    // '300': 'A4E1F8', //azul claro
+    // '300': 'EB7B7C', //rojo raro
+    // '400': 'F19AC0', //rosa mexicano
+    // F8BBD0 rosa shade menu
+    var neonRedMap = $mdThemingProvider.extendPalette('red', {
+      '500': '#000000',
+      'contrastDefaultColor': 'light'
+    });
+    $mdThemingProvider.definePalette('neonRed', neonRedMap);
+    $mdThemingProvider.theme('default')
+      .primaryPalette('neonRed');
+
 }]).config(['$locationProvider', function($locationProvider) {
   $locationProvider.html5Mode(true);
   $locationProvider.hashPrefix('!');
@@ -33,7 +41,7 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
   var tabs = [
     { title: 'Blog', path: 'blog', idx: 0},
     // { title: 'Galeria', path: 'gallery', idx: 1}  ,
-    { title: 'Contacto', path: 'contact', idx: 2}
+    { title: 'Nosotros', path: 'contact', idx: 2}
   ];
 
   $scope.tabs = tabs;

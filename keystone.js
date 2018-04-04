@@ -11,8 +11,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Sucia Escena',
-	'brand': 'Sucia Escena',
+	'name': 'SLNA',
+	'brand': 'SLNA',
 
 	'less': 'public',
 	'static': 'public',
@@ -37,7 +37,7 @@ keystone.init({
 	'wysiwyg images': true,
 	'wysiwyg additional plugins': 'media mediaembed',
 	'wysiwyg additional buttons': 'media, blockquote, searchreplace'
-	
+
 });
 
 keystone.set('frame guard', false);

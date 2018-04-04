@@ -9,7 +9,7 @@ angular.module('mainApp.blog', ['ngRoute'])
     controller: 'HomeCtrl',
     data: {
       meta: {
-        'title': 'Home',
+        'title': 'SLNA',
         'description': 'Medio LoFi Mexicano'
       //  'image':
       }
@@ -21,7 +21,7 @@ angular.module('mainApp.blog', ['ngRoute'])
     controller: 'HomeCtrl',
     data: {
       meta: {
-        'title': 'Home',
+        'title': 'SLNA',
         'description': 'Medio LoFi Mexicano'
       }
     }
@@ -32,7 +32,7 @@ angular.module('mainApp.blog', ['ngRoute'])
     controller: 'HomeCtrl',
     data: {
       meta: {
-        'title': 'Home',
+        'title': 'SLNA',
         'description': 'Medio LoFi Mexicano'
       }
     }
@@ -43,7 +43,7 @@ angular.module('mainApp.blog', ['ngRoute'])
     controller: 'HomeCtrl',
     data: {
       meta: {
-        'title': 'Home',
+        'title': 'SLNA',
         'description': 'Medio LoFi Mexicano'
       }
     }
@@ -53,7 +53,6 @@ angular.module('mainApp.blog', ['ngRoute'])
 .controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', '$routeParams', '$scope', '$location', '$mdSidenav', '$mdUtil', '$route', '$timeout',function(Post, PostByCategory, PostCategory, $routeParams, $scope, $location, $mdSidenav, $mdUtil, $route, $timeout,) {
   var blog = this;
 
-  console.log($scope.isMobile);
 
   blog.response = {};
   blog.posts = {};

@@ -1,6 +1,6 @@
-# Sucia Escena
+# SLNA
 
-Sitio para el medio [Sucia Escena](http://www.suciaescena.com)
+Sitio para el medio [SLNA](http://www.suciaescena.com)
 
 CMS => [Keystone](http://keystonejs.com/)
 Sitio Web => [AngularMaterial](https://material.angularjs.org/latest/)

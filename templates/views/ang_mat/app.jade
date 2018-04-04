@@ -23,7 +23,7 @@ block app
     md-toolbar(class="app-toolbar")
       div(class="md-toolbar-tools")
         a(ng-href='/blog')
-          img.logo(src='/images/suciaescenalogo.png' alt="sucia escena")
+          img.logo(src='/images/name.png' alt="SLNA")
         md-tabs(md-center-tabs="true" selected="selectedIndex")
           md-tab(ng-repeat="tab in tabs" on-select="onTabSelected(tab)" on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="{{tab.title}}" ng-click="go(tab, '/' + tab.path)")
         div.iconos_toolbar(hide-sm hide-xs)

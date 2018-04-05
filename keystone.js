@@ -30,11 +30,11 @@ keystone.init({
 	'cloudinary config': process.env.CLOUDINARY_URL || 'cloudinary://333779167276662:_8jbSi9FB3sWYrfimcl8VKh34rI@keystone-demo',
 
 	// 'ssl': true,
-	'ssl' : 'only',
+	// 'ssl' : 'only',
 
 	// 'ssl cert':'../../etc/letsencrypt/renewal/www.suciaescena.com.conf',
 	// 'ssl port':process.env.PORT
-	'trust proxy' : true
+	'trust proxy' : true,
 
 	//wysiwyg conf
 	'wysiwyg images': true,

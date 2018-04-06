@@ -1,13 +1,22 @@
 /*todo*/
-body{
-  /* font-family: 'Josefin Sans', sans-serif; */
+@font-face {
+font-family: 'MetroDF';
+src: url('../../fonts/metroDF.ttf')  format('truetype');
 }
+
+body{
+  font-family: 'MetroDF', sans-serif;
+  letter-spacing: 2px;
+}
+
+.texto *{
+  font-family: 'Abel', sans-serif !important;
+  font-weight: 600;
+}
+
 .md-toolbar-tools{
   padding-top: 10px;
 }
- h3{
-   font-size: 23px !important;
- }
 
 a:link {
     color: #F19AC0;
@@ -131,7 +140,7 @@ p > img {
     margin: 0 auto;
 	    margin-top: 20px;
     margin-bottom: 20px;
-    width: 90%;
+    width: 60%;
 height: auto;
 }
 
@@ -144,13 +153,15 @@ height: auto;
 }
 
 .titulo{
-  font-size: 40px;
+  font-size: 25px;
   margin-bottom: 5px;
 }
 
 .subtitulo{
-  font-size: 12px;
+  font-size: 16px;
   color: grey;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .post > .subtitulo{
@@ -278,6 +289,11 @@ strong{
    width: 100%;
   height: 550px;
   }
+
+  h3{
+    font-size: 23px !important;
+  }
+
 }
 
 /*Tablet*/
@@ -305,10 +321,7 @@ strong{
   height: 200px;
  }
 
- .subtitulo{
-   margin-left: 10px;
-   margin-right: 10px;
- }
+
   .datos_post{
     position: relative;
     /*color:black;*/

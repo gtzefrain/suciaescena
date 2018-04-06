@@ -265,13 +265,28 @@ height: auto;
 .category{
   margin-bottom: 10px;
 }
-/*Tablet*/
 .social{
   min-height: 20px;
   height: 40px;
 }
 strong{
   font-weight: bold !important;
+}
+
+@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
+  iframe{
+   width: 100%;
+  height: 550px;
+  }
+}
+
+/*Tablet*/
+
+@media (min-width:600px & max-width:800px){
+  iframe{
+   width: 100%;
+     height: 400px;
+  }
 }
 
 @media (max-width:600px){/*Movil*/
@@ -285,8 +300,15 @@ strong{
   .art-img{
     width: 90%;
   }
+ iframe{
+   width: 100%;
+  height: 200px;
+ }
 
-
+ .subtitulo{
+   margin-left: 10px;
+   margin-right: 10px;
+ }
   .datos_post{
     position: relative;
     /*color:black;*/
@@ -339,8 +361,8 @@ strong{
 
 .post .texto{
   font-size: 18px;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
   text-align: left;
 }
 }

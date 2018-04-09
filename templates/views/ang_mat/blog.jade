@@ -6,7 +6,7 @@ body
       md-toolbar
         h1.cat.md-toolbar-tools Categorias
       md-content(layout-padding="")
-        md-button(ng-repeat="category in blog.categories" ng-click="go('/blog/' + category.key)" class="md-primary" aria-label="Show Category {{category.name}}") {{category.name}}
+        md-button(ng-repeat="category in blog.categories" ng-click="go('/blog/' + category.key)" aria-label="Show Category {{category.name}}") {{category.name}}
           md-divider(inset)
         md-button(ng-click="closeRight()" class="md-primary" hide-gt-md aria-label="Close Categories") Cerrar  
     div.float-button
@@ -21,10 +21,10 @@ body
               //- img(ng-src="{{post.image.url}}" class="face img" ng-click="go('/post/'+post.slug)")
             div(class="md-tile-content img" layout="row" layout-align="space-around center" ng-click="go('/post/'+post.slug)" ng-style="!isMobile && {'background-image':'url(' + post.image.secure_url + ')'} || {'background-image':'url(' + post.image.secure_url + ')'}" )
               div.datos_post(flex-gt-sm="100" flex="50" ng-class="{'izquierda':$even,'derecha':$odd}")  
-                h3 {{post.title}}
-                h4 {{post.publishedDate | date:'longDate'}} 
+                h2.postTitle {{post.title}}
+                h3.postDate {{post.publishedDate | date:'mediumDate'}} 
                 span(ng-repeat="category in post.categories")
-                  a(href="" ng-click="go('/blog/' + category.key)") {{category.name}}
+                  a.postCategory(href="" ng-click="go('/blog/' + category.key)") {{category.name}}
                     //- md-button(ng-click="refreshPosts(category.key)") {{category.name}}
                     | {{$last ? ' ' : ', '}}
                   //- {{post.content.brief}}

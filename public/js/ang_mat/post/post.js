@@ -21,11 +21,12 @@ angular.module('mainApp.post', ['ngRoute'])
 
   $scope.go = function ( path ) {
     $location.path( path );
+
   };
 
   Post.get({slug: $routeParams.slug}, function(post) {
     self.post = post;
-    console.log(self.post);
+    $location.search('page', null)
     var html = self.post.content.brief;
     var div = document.createElement("div");
     div.innerHTML = html;
@@ -33,5 +34,5 @@ angular.module('mainApp.post', ['ngRoute'])
     ngMeta.setTitle(self.post.title,''); //Title = Eluvium
     ngMeta.setTag('description', String(self.post.content.brief));
     ngMeta.setTag('image', String(self.post.image.secure_url));
-  });	
+  });
 }]);

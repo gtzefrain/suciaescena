@@ -5,14 +5,14 @@ div(ng-controller="PostCtrl as postctrl" layout="vertical" layout-fill)
   md-content(class="full center post")
     div.content
       h2.titulo {{postctrl.post.title}}
-      h3.subtitulo {{postctrl.post.content.brief}}
+      h4.subtitulo {{postctrl.post.content.brief}}
+      div.contain
+        img(ng-src="{{postctrl.post.image.url}}" class="art-img")
+      h4.subtitulo.autor Por {{postctrl.post.author.name.first}} {{postctrl.post.author.name.last}}
+          | <br> {{postctrl.post.publishedDate | date:'longDate'}}
         //div.fb-share-button(data-layout="button" data-size="small" data-mobile-iframe="true")
         //a.fb-xfbml-parse-ignore (target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse") Share
       md-divider.topPost(inset)
-      h4.subtitulo {{postctrl.post.publishedDate | date:'longDate'}} 
-        | por {{postctrl.post.author.name.first}} {{postctrl.post.author.name.last}}
-      div.contain
-        img(ng-src="{{postctrl.post.image.url}}" class="art-img")
       div.texto(ng-bind-html="postctrl.post.content.extended  | trustAs")
       div
         img.logoPost(src="/images/logo.png")

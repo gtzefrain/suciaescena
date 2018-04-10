@@ -36,13 +36,17 @@ body
               //-     img(src="{{post.image.secure_url}}")
           
           md-divider(ng-if="!$last" inset)
-        div.back(class="md-primary" ng-if="blog.response.pages" aria-label="Toggle Categories" layout="row" layout-align="space-around center")
+        div.back(class="md-primary" ng-if="blog.response.pages && blog.response.currentPage != 1" aria-label="Toggle Categories" layout="row" layout-align="space-around center")
           div(layout="row" layout-align="center center" flex)
-            a.previous.page(ng-if="blog.response.previous" ng-href='/blog?page={{blog.response.previous}}') <<
+              a.previous.page(ng-if="blog.response.previous" ng-href='/blog?page={{blog.response.previous}}') Recientes
+          //- div(layout="row" layout-align="center center" flex)
+          //-   a.page(ng-repeat="page in blog.response.pages" ng-href='/blog?page={{page}}') {{page}}  
           div(layout="row" layout-align="center center" flex)
-            a.page(ng-repeat="page in blog.response.pages" ng-href='/blog?page={{page}}') {{page}}  
+            a.next.page(ng-if="blog.response.next" ng-href='/blog?page={{blog.response.next}}') Antiguas
+
+        div.back(class="md-primary" ng-if="blog.response.pages && blog.response.currentPage == 1" aria-label="Toggle Categories" layout="row" layout-align="space-around center")
           div(layout="row" layout-align="center center" flex)
-            a.next.page(ng-if="blog.response.next" ng-href='/blog?page={{blog.response.next}}') >>
+              a.previous.page(ng-href='/blog?page={{blog.response.next}}') Más Posts
 
         //- md-list
         //-   md-item(ng-repeat="post in blog.posts")

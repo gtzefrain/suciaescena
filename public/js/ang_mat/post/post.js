@@ -16,13 +16,14 @@ angular.module('mainApp.post', ['ngRoute'])
   })
 }])
 
-.controller('PostCtrl', ['$routeParams', '$location', '$scope', 'Post', 'ngMeta', function($routeParams, $location, $scope, Post, ngMeta) {
+.controller('PostCtrl', ['$routeParams', '$location', '$scope', 'Post', 'ngMeta', '$mdDialog', function($routeParams, $location, $scope, Post, ngMeta, $mdDialog) {
   var self = this;
 
   $scope.go = function ( path ) {
     $location.path( path );
 
   };
+
 
   Post.get({slug: $routeParams.slug}, function(post) {
     self.post = post;
@@ -35,4 +36,54 @@ angular.module('mainApp.post', ['ngRoute'])
     ngMeta.setTag('description', String(self.post.content.brief));
     ngMeta.setTag('image', String(self.post.image.secure_url));
   });
+
+  $scope.showDialog = function($event, image){
+      $mdDialog.show({
+        targetEvent: $event,
+        clickOutsideToClose: true,
+        template:
+          '<md-dialog>' +
+          '  <md-content> ' +
+          ' <img class="modalImg" ng-src={{modal.image.url}}>' +
+          '  </md-content>' +
+          // '  <div class="md-actions">' +
+          // '    <md-button ng-click="closeDialog()">' +
+          // '      Close Greeting' +
+          // '    </md-button>' +
+          // '  </div>' +
+          '</md-dialog>',
+          controller: function DialogController($scope, $mdDialog, image) {
+            var vm = this;
+            vm.image = image
+            console.log(vm.image.url);
+            $scope.closeDialog = function() {
+              $mdDialog.hide();
+            }
+          },
+        controllerAs: 'modal',
+        onComplete: afterShowAnimation,
+        locals: {
+          image: image
+        }
+      });
+    }
+      // When the 'enter' animation finishes...
+
+      function afterShowAnimation(scope, element, options) {
+        console.log("done");
+         // post-show code here: DOM element focus, etc.
+      }
+
+      function GreetingController($scope, $mdDialog) {
+    // Assigned from construction <code>locals</code> options...
+
+      $scope.closeDialog = function() {
+        // Easily hides most recent dialog shown...
+        // no specific instance reference is needed.
+        $mdDialog.hide();
+      };
+    }
+
+
+
 }]);

@@ -78,7 +78,6 @@ angular.module('mainApp.blog', ['ngRoute'])
                 posts.push(item)
             });
             blog.response = posts[0]
-            console.log(blog.response);
             blog.posts = blog.response.results;
           });
         }else {
@@ -93,6 +92,8 @@ angular.module('mainApp.blog', ['ngRoute'])
           });
           blog.response = posts[0]
           blog.posts = blog.response.results;
+          console.log(blog.response);
+
         })
       }
       else{
@@ -103,6 +104,8 @@ angular.module('mainApp.blog', ['ngRoute'])
           });
           blog.response = posts[0]
           blog.posts = blog.response.results;
+          console.log(blog.response);
+
         });
       }
 

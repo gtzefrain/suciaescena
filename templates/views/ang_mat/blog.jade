@@ -23,7 +23,7 @@ body
               div.datos_post(flex-gt-sm="100" flex="50" ng-class="{'izquierda':$even,'derecha':$odd}")  
                 h2.postTitle {{post.title}}
                 h3.postDate {{post.publishedDate | date:'mediumDate'}} 
-                span(ng-repeat="category in post.categories")
+                span(ng-repeat="category in post.categories | limitTo:2")
                   a.postCategory(href="" ng-click="go('/blog/' + category.key)") {{category.name}}
                     //- md-button(ng-click="refreshPosts(category.key)") {{category.name}}
                     | {{$last ? ' ' : ', '}}

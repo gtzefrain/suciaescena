@@ -126,8 +126,9 @@ background-size: cover
 
 
 .datos_post{
-  position: absolute;
-  top:50%;
+  height: 100%;
+  position: relative;
+  /* top:50%; */
   color: white;
   text-shadow: 1px 1px black;
 }
@@ -144,7 +145,26 @@ background-size: cover
     text-align: center;
     font-size: 14px;
 }
+.greyback{
+  height: 100%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
+.greyinner{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+}
+
+.greyinner > *{
+  text-align: center;
+}
+.cat{
+    display: block;
+    text-transform: none;
+}
 /*Post*/
 
 .art-img{
@@ -407,13 +427,13 @@ p > img {
  }
 
   .datos_post{
+    /* height: 100%; */
     position: relative;
     /*color:black;*/
     top: 0%;
     overflow: auto;
     /* background: rgba(0, 0, 0, 0.2); */
     /*text-shadow: none;*/
-    padding-left: 10px;
     font-weight: 350 !important;
   }
   /* .datos_post > h3 {
@@ -461,5 +481,8 @@ p > img {
 }
    .postTitle{
      font-size: 20px;
+   }
+   .greyinner{
+     width: inherit;
    }
 }

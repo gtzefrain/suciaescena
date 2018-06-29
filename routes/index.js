@@ -103,8 +103,6 @@ var keystone = require('keystone'),
 	sitemap = require('keystone-express-sitemap');
 
 	// other middleware/dependencies go here
-
-	exports = module.exports = function(app) {
 		app.get('/sitemap.xml', function(req, res) {
 			sitemap.create(keystone, req, res);
 		});

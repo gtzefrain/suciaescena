@@ -46,11 +46,9 @@ var routes = {
 exports = module.exports = function(app) {
 
 	// Views
-
-		// other middleware/dependencies go here
-			app.get('/sitemap.xml', function(req, res) {
-				sitemap.create(keystone, req, res);
-			});
+	app.get('/sitemap.xml', function(req, res) {
+		sitemap.create(keystone, req, res);
+	});
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
@@ -103,10 +101,6 @@ exports = module.exports = function(app) {
 	// app.use('/css', __dirname + '/css');
 	// app.use('/partials', __dirname + '/partials'	);
 };
-
-
-		// other application routes go here
-	}
 // app.get('/*', function(req, res){
 // 	console.log('epa');
 // 	res.sendfile( indexPath + '/index.html' );

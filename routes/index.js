@@ -24,6 +24,7 @@ var _ = require('lodash'),
 	importRoutes = keystone.importer(__dirname);
 	express = require('express');
 	app = express()
+	sitemap = require('keystone-express-sitemap');
 
 	app.use(require('prerender-node').set('prerenderToken', 'P0duudxFrGNFUGmh8FQt'));
 
@@ -46,6 +47,10 @@ exports = module.exports = function(app) {
 
 	// Views
 
+		// other middleware/dependencies go here
+			app.get('/sitemap.xml', function(req, res) {
+				sitemap.create(keystone, req, res);
+			});
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
@@ -99,13 +104,6 @@ exports = module.exports = function(app) {
 	// app.use('/partials', __dirname + '/partials'	);
 };
 
-var keystone = require('keystone'),
-	sitemap = require('keystone-express-sitemap');
-
-	// other middleware/dependencies go here
-		app.get('/sitemap.xml', function(req, res) {
-			sitemap.create(keystone, req, res);
-		});
 
 		// other application routes go here
 	}

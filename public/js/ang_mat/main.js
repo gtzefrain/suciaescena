@@ -26,9 +26,12 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
     $mdThemingProvider.theme('default')
       .primaryPalette('neonRed');
 
-}]).config(['$locationProvider', function($locationProvider) {
+}]).config(['$locationProvider', 'ngMetaProvider', function($locationProvider, ngMetaProvider) {
   $locationProvider.html5Mode(true);
   $locationProvider.hashPrefix('!');
+  ngMetaProvider.useTitleSuffix(true);
+  ngMetaProvider.setDefaultTitle('SLNA');
+  ngMetaProvider.setDefaultTitleSuffix(' | SLNA');
 }])
 // .run(['$location',
 //     function ($location) {

@@ -10,7 +10,7 @@ angular.module('mainApp.post', ['ngRoute'])
       meta: {
         'title': 'Post',
         'description': 'Descripcion',
-        'image':'ss'
+        'image':'Image'
       }
     }
   })
@@ -21,7 +21,6 @@ angular.module('mainApp.post', ['ngRoute'])
 
   $scope.go = function ( path ) {
     $location.path( path );
-
   };
 
 
@@ -34,7 +33,10 @@ angular.module('mainApp.post', ['ngRoute'])
     self.post.content.brief = div.innerText;
     ngMeta.setTitle(self.post.title,''); //Title = Eluvium
     ngMeta.setTag('description', String(self.post.content.brief));
+    ngMeta.setTag('og:description', String(self.post.content.brief));
+    ngMeta.setTag('og:image', String(self.post.image.secure_url));
     ngMeta.setTag('image', String(self.post.image.secure_url));
+
   });
 
   $scope.showDialog = function($event, image){

@@ -99,6 +99,18 @@ exports = module.exports = function(app) {
 	// app.use('/partials', __dirname + '/partials'	);
 };
 
+var keystone = require('keystone'),
+	sitemap = require('keystone-express-sitemap');
+
+	// other middleware/dependencies go here
+
+	exports = module.exports = function(app) {
+		app.get('/sitemap.xml', function(req, res) {
+			sitemap.create(keystone, req, res);
+		});
+
+		// other application routes go here
+	}
 // app.get('/*', function(req, res){
 // 	console.log('epa');
 // 	res.sendfile( indexPath + '/index.html' );

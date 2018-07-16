@@ -94,6 +94,10 @@ exports = module.exports = function(app) {
 	// app.get('/ang_bootm/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.gallery);
 	// app.get('/ang_bootm/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.contact);
 	//
+	app.get('/google8d4749e9ba0e7fa7.html', function (req, res) {
+		res.sendFile(path.join(__dirname, '../public', 'google8d4749e9ba0e7fa7.html' ));
+	})
+
 	app.get('/*', routes.ang_mat.app , function(req, res) {
     res.render('/blog');
   });

@@ -46,9 +46,12 @@ var routes = {
 exports = module.exports = function(app) {
 
 	// Views
-	app.get('/sitemap.xml', function(req, res) {
-		sitemap.create(keystone, req, res);
-	});
+	// app.get('/sitemap.xml', function(req, res) {
+	// 	sitemap.create(keystone, req, res, {
+  //       ignore: ['^\/api.*$']
+  //   });
+	// 	sitemap.create(keystone, req, res);
+	// });
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
@@ -77,23 +80,24 @@ exports = module.exports = function(app) {
 	app.get('/api/enquiry_type/list', [keystone.middleware.api, keystone.middleware.cors], routes.api.enquiry_types.list);
 	app.get('/api/enquiry_type/:value', [keystone.middleware.api, keystone.middleware.cors], routes.api.enquiry_types.get);
 
-	// App Routes for Angular Material Project
-	app.get('/ang_mat', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.app);
-	app.get('/ang_mat/blog', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.blog);
-	app.get('/ang_mat/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.post);
-	app.get('/ang_mat/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.gallery);
-	app.get('/ang_mat/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.contact);
-
-	// App Routes for Angular Bootstrap Material Project
-	app.get('/ang_bootm', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.app);
-	app.get('/ang_bootm/blog', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.blog);
-	app.get('/ang_bootm/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.post);
-	app.get('/ang_bootm/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.gallery);
-	app.get('/ang_bootm/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.contact);
+	// // App Routes for Angular Material Project
+	// app.get('/ang_mat', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.app);
+	// app.get('/ang_mat/blog', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.blog);
+	// app.get('/ang_mat/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.post);
+	// app.get('/ang_mat/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.gallery);
+	// app.get('/ang_mat/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.contact);
+	//
+	// // App Routes for Angular Bootstrap Material Project
+	// app.get('/ang_bootm', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.app);
+	// app.get('/ang_bootm/blog', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.blog);
+	// app.get('/ang_bootm/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.post);
+	// app.get('/ang_bootm/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.gallery);
+	// app.get('/ang_bootm/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.contact);
 	//
 	app.get('/*', routes.ang_mat.app , function(req, res) {
     res.render('/blog');
   });
+
 	// app.all("/*", [keystone.middleware.api, keystone.middleware.cors] , routes.ang_mat.blog)
 	//
 	// app.use('/js', __dirname + '/js');

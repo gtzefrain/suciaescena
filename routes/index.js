@@ -45,7 +45,7 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
 
-	Views
+	// Views
 	app.get('/sitemap.xml', function(req, res) {
 		sitemap.create(keystone, req, res, {
         ignore: ['^\/api.*$']

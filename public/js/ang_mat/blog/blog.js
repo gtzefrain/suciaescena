@@ -1,6 +1,7 @@
 'use strict';
 
 window.prerenderReady = false;
+console.log(window.prerenderReady);
 
 angular.module('mainApp.blog', ['ngRoute'])
 
@@ -111,7 +112,6 @@ angular.module('mainApp.blog', ['ngRoute'])
       blog.categories = PostCategory.query(function(){
         blog.categories.unshift({key:'', name:'Todos'});
       });
-      window.prerenderReady = true;
   }
 
   $scope.go = function ( path ) {

@@ -25,8 +25,8 @@ var _ = require('lodash'),
 	express = require('express');
 	app = express()
 	sitemap = require('keystone-express-sitemap');
-
-	app.use(require('prerender-node').set('prerenderToken', 'P0duudxFrGNFUGmh8FQt'));
+	prerender = require('prerender-node');
+	
 
 
 
@@ -52,6 +52,8 @@ exports = module.exports = function(app) {
     });
 		sitemap.create(keystone, req, res);
 	});
+
+	app.use(prerender.set('prerenderToken', 'P0duudxFrGNFUGmh8FQt'));
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

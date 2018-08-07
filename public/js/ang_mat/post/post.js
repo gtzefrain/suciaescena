@@ -1,6 +1,7 @@
 'use strict';
 
 window.prerenderReady = false;
+console.log(window.prerenderReady);
 
 angular.module('mainApp.post', ['ngRoute'])
 
@@ -39,6 +40,7 @@ angular.module('mainApp.post', ['ngRoute'])
     ngMeta.setTag('og:image', String(self.post.image.secure_url));
     ngMeta.setTag('image', String(self.post.image.secure_url));
     window.prerenderReady = true;
+    console.log(window.prerenderReady);
   });
 
   $scope.showDialog = function($event, image){

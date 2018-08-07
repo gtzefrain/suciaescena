@@ -18,9 +18,6 @@
  * http://expressjs.com/api.html#app.VERB
  */
 
-export PRERENDER_SERVICE_URL= 'http://localhost:3000'
-
-
 var _ = require('lodash'),
 	keystone = require('keystone'),
 	middleware = require('./middleware'),

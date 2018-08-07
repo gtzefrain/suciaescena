@@ -27,7 +27,7 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
       .primaryPalette('neonRed');
 
 }]).config(['$locationProvider', 'ngMetaProvider', function($locationProvider, ngMetaProvider) {
-  $locationProvider.hashPrefix('!');
+  $locationProvider.html5Mode(true);
   ngMetaProvider.useTitleSuffix(true);
   ngMetaProvider.setDefaultTitle('SLNA');
 }])

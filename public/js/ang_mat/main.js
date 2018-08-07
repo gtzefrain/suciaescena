@@ -28,7 +28,7 @@ config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemi
 
 }]).config(['$locationProvider', 'ngMetaProvider', function($locationProvider, ngMetaProvider) {
   $locationProvider.hashPrefix('!');
-    ngMetaProvider.useTitleSuffix(true);
+  ngMetaProvider.useTitleSuffix(true);
   ngMetaProvider.setDefaultTitle('SLNA');
 }])
 // .run(['$location',

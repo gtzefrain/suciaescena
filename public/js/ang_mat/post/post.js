@@ -1,5 +1,7 @@
 'use strict';
 
+window.prerenderReady = false;
+
 angular.module('mainApp.post', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider, ngMetaProvider) {

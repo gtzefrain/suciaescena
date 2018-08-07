@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('mainApp.blog', ['ngRoute'])
+window.prerenderReady = false;
 
+angular.module('mainApp.blog', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider, ngMetaProvider) {
   $routeProvider.when('/blog/:key', {

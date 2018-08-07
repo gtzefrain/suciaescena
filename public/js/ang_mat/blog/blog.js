@@ -110,6 +110,7 @@ angular.module('mainApp.blog', ['ngRoute'])
       blog.categories = PostCategory.query(function(){
         blog.categories.unshift({key:'', name:'Todos'});
       });
+      window.prerenderReady = true;
   }
 
   $scope.go = function ( path ) {

@@ -36,7 +36,7 @@ angular.module('mainApp.post', ['ngRoute'])
     ngMeta.setTag('og:description', String(self.post.content.brief));
     ngMeta.setTag('og:image', String(self.post.image.secure_url));
     ngMeta.setTag('image', String(self.post.image.secure_url));
-
+    window.prerenderReady = true;
   });
 
   $scope.showDialog = function($event, image){

@@ -13,7 +13,7 @@ keystone.init({
 
 	'name': 'SLNA',
 	'brand': 'SLNA',
-	'port': '3010',
+	'port': '3000',
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
@@ -80,7 +80,7 @@ keystone.set('nav', {
 
 // Start Keystone to connect to your database and initialise the web server
 // keystone.set('baseUrl', 'https://nodevision.com.au/');
-keystone.set('baseUrl', 'http://localhost:3010/#!/blog');
+keystone.set('baseUrl', 'http://localhost:3000/blog');
 
 
 keystone.start();

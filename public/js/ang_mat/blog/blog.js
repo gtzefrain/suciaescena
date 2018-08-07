@@ -3,55 +3,7 @@
 window.prerenderReady = false;
 console.log(window.prerenderReady);
 
-angular.module('mainApp.blog', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider, ngMetaProvider) {
-  $routeProvider.when('/blog/:key', {
-    templateUrl: '/ang_mat/blog',
-    controller: 'HomeCtrl',
-    data: {
-      meta: {
-        'title': 'SLNA',
-        'description': 'Medio LoFi Mexicano'
-      //  'image':
-      }
-    }
-  });
-
-  $routeProvider.when('/blog/:key:page', {
-    templateUrl: '/ang_mat/blog',
-    controller: 'HomeCtrl',
-    data: {
-      meta: {
-        'title': 'SLNA',
-        'description': 'Medio LoFi Mexicano'
-      }
-    }
-  });
-
-  $routeProvider.when('/blog', {
-    templateUrl: '/ang_mat/blog',
-    controller: 'HomeCtrl',
-    data: {
-      meta: {
-        'title': 'SLNA',
-        'description': 'Medio LoFi Mexicano'
-      }
-    }
-  });
-
-  $routeProvider.when('/blog:page', {
-    templateUrl: '/ang_mat/blog',
-    controller: 'HomeCtrl',
-    data: {
-      meta: {
-        'title': 'SLNA',
-        'description': 'Medio LoFi Mexicano'
-      }
-    }
-  });
-}])
-
+angular.module('mainApp.blog', [])
 .controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', '$routeParams', '$scope', '$location', '$mdSidenav', '$mdUtil', '$route', '$timeout',function(Post, PostByCategory, PostCategory, $routeParams, $scope, $location, $mdSidenav, $mdUtil, $route, $timeout,) {
   var blog = this;
 

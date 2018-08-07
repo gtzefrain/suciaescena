@@ -10,27 +10,83 @@ angular.module('mainApp', [
   'mainApp.gallery',
   'mainApp.contact',
   'postServices',
-  'ngMeta']).
-config(['$routeProvider','$mdThemingProvider', function($routeProvider, $mdThemingProvider) {
-  $routeProvider.otherwise({redirectTo: '/blog'});
+  'ngMeta'])
+.config(['$mdThemingProvider', function($mdThemingProvider) {
   // theme
-    // '300': 'A4E1F8', //azul claro
-    // '300': 'EB7B7C', //rojo raro
-    // '400': 'F19AC0', //rosa mexicano
-    // F8BBD0 rosa shade menu
-    var neonRedMap = $mdThemingProvider.extendPalette('red', {
-      '500': '#000000',
-      'contrastDefaultColor': 'light'
-    });
-    $mdThemingProvider.definePalette('neonRed', neonRedMap);
-    $mdThemingProvider.theme('default')
-      .primaryPalette('neonRed');
-
-}]).config(['$locationProvider', 'ngMetaProvider', function($locationProvider, ngMetaProvider) {
-  $locationProvider.html5Mode(true);
+  // '300': 'A4E1F8', //azul claro
+  // '300': 'EB7B7C', //rojo raro
+  // '400': 'F19AC0', //rosa mexicano
+  // F8BBD0 rosa shade menu
+  var neonRedMap = $mdThemingProvider.extendPalette('red', {
+    '500': '#000000',
+    'contrastDefaultColor': 'light'
+  });
+  $mdThemingProvider.definePalette('neonRed', neonRedMap);
+  $mdThemingProvider.theme('default')
+  .primaryPalette('neonRed');
+}])
+.config(['ngMetaProvider', function(ngMetaProvider) {
   ngMetaProvider.useTitleSuffix(true);
   ngMetaProvider.setDefaultTitle('SLNA');
 }])
+.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  $routeProvider.when('/blog/:key', {
+    templateUrl: '/ang_mat/blog',
+    controller: 'HomeCtrl',
+    data: {
+      meta: {
+        'title': 'SLNA',
+        'description': 'Medio LoFi Mexicano'
+      //  'image':
+      }
+    }
+  })
+  .when('/blog/:key:page', {
+    templateUrl: '/ang_mat/blog',
+    controller: 'HomeCtrl',
+    data: {
+      meta: {
+        'title': 'SLNA',
+        'description': 'Medio LoFi Mexicano'
+      }
+    }
+  })
+  .when('/blog', {
+    templateUrl: '/ang_mat/blog',
+    controller: 'HomeCtrl',
+    data: {
+      meta: {
+        'title': 'SLNA',
+        'description': 'Medio LoFi Mexicano'
+      }
+    }
+  })
+  .when('/blog:page', {
+    templateUrl: '/ang_mat/blog',
+    controller: 'HomeCtrl',
+    data: {
+      meta: {
+        'title': 'SLNA',
+        'description': 'Medio LoFi Mexicano'
+      }
+    }
+  })
+  .when('/post/:slug', {
+    templateUrl: '/ang_mat/post',
+    controller: 'PostCtrl',
+    data: {
+      meta: {
+        'title': 'Post',
+        'description': 'Descripcion',
+        'image':'Image'
+      }
+    }
+  })
+  $routeProvider.otherwise({redirectTo: '/blog'});
+  $locationProvider.html5Mode(true);
+
+}])
+
 // .run(['$location',
 //     function ($location) {
 //         $location.path('/blog');

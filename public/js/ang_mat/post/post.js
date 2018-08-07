@@ -3,21 +3,7 @@
 window.prerenderReady = false;
 console.log(window.prerenderReady);
 
-angular.module('mainApp.post', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider, ngMetaProvider) {
-  $routeProvider.when('/post/:slug', {
-    templateUrl: '/ang_mat/post',
-    controller: 'PostCtrl',
-    data: {
-      meta: {
-        'title': 'Post',
-        'description': 'Descripcion',
-        'image':'Image'
-      }
-    }
-  })
-}])
+angular.module('mainApp.post', [])
 
 .controller('PostCtrl', ['$routeParams', '$location', '$scope', 'Post', 'ngMeta', '$mdDialog', function($routeParams, $location, $scope, Post, ngMeta, $mdDialog) {
   var self = this;

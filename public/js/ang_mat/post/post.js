@@ -13,9 +13,9 @@ angular.module('mainApp.post', [])
   };
 
 
+
   Post.get({slug: $routeParams.slug}, function(post) {
     self.post = post;
-    // console.log(self);
     $location.search('page', null)
     var html = self.post.content.brief;
     var div = document.createElement("div");
@@ -23,10 +23,13 @@ angular.module('mainApp.post', [])
     self.post.content.brief = div.innerText;
     ngMeta.setTitle(self.post.title,''); //Title = Eluvium
     ngMeta.setTag('description', String(self.post.content.brief));
-    ngMeta.setTag('og:description', String(self.post.content.brief));
     document.querySelector("meta[property='og:type']").setAttribute('content', 'article');
     document.querySelector("meta[property='og:image']").setAttribute('content', self.post.image.secure_url);
-    document.querySelector("meta[property='image']").setAttribute('content', self.post.image.secure_url);
+    self.addMetaTag('image', self.post.image.secure_url);
+    self.addMetaTag('og:description', self.post.content.brief );
+    self.addMetaTag('og:image:width', self.post.image.width);
+    self.addMetaTag('og:image:height', self.post.image.height);
+
     window.prerenderReady = true;
     console.log(window.prerenderReady);
   });
@@ -78,6 +81,14 @@ angular.module('mainApp.post', [])
       };
     }
 
+    self.addMetaTag = function(string, content){
+      if(document.querySelectorAll("meta[property='"+string+"']").length == 0){
+        var z = document.createElement('meta');
+        z.name = string
+        z.content = content
+        document.getElementsByTagName('head')[0].appendChild(z);
+      }
+    }
 
 
 }]);

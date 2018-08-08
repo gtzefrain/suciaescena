@@ -32,7 +32,6 @@ angular.module('mainApp', [
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider.when('/blog/:key', {
     templateUrl: '/ang_mat/blog',
-    controller: 'HomeCtrl',
     data: {
       meta: {
         'title': 'SLNA',
@@ -43,7 +42,6 @@ angular.module('mainApp', [
   })
   .when('/blog/:key:page', {
     templateUrl: '/ang_mat/blog',
-    controller: 'HomeCtrl',
     data: {
       meta: {
         'title': 'SLNA',
@@ -53,7 +51,6 @@ angular.module('mainApp', [
   })
   .when('/blog', {
     templateUrl: '/ang_mat/blog',
-    controller: 'HomeCtrl',
     data: {
       meta: {
         'title': 'SLNA',
@@ -63,7 +60,6 @@ angular.module('mainApp', [
   })
   .when('/blog:page', {
     templateUrl: '/ang_mat/blog',
-    controller: 'HomeCtrl',
     data: {
       meta: {
         'title': 'SLNA',
@@ -73,7 +69,6 @@ angular.module('mainApp', [
   })
   .when('/post/:slug', {
     templateUrl: '/ang_mat/post',
-    controller: 'PostCtrl',
     data: {
       meta: {
         'title': 'Post',

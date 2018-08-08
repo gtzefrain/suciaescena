@@ -53,7 +53,7 @@ exports = module.exports = function(app) {
 		sitemap.create(keystone, req, res);
 	});
 
-	app.use(prerender.set('prerenderToken', 'P0duudxFrGNFUGmh8FQt'));
+	app.use(prerender.set('prerenderToken', 'P0duudxFrGNFUGmh8FQt').set('protocol', 'https'));
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

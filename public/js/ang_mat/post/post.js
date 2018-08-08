@@ -15,6 +15,7 @@ angular.module('mainApp.post', [])
 
   Post.get({slug: $routeParams.slug}, function(post) {
     self.post = post;
+    // console.log(self);
     $location.search('page', null)
     var html = self.post.content.brief;
     var div = document.createElement("div");

@@ -29,10 +29,8 @@ exports.list = function(req, res) {
  */
 exports.get = function(req, res) {
   Post.model.findOne().populate('author categories').where('slug', req.params.slug).exec(function(err, item) {
-
     if (err) return res.apiError('database error', err);
     if (!item) return res.apiError('not found');
-
     res.apiResponse(
       item
     );

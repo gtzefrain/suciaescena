@@ -86,11 +86,6 @@ angular.module('mainApp', [
   $locationProvider.html5Mode(true);
 
 }])
-
-// .run(['$location',
-//     function ($location) {
-//         $location.path('/blog');
-//     }])
 .run(['ngMeta', function(ngMeta) {
   ngMeta.init();
 }])

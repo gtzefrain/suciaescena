@@ -28,7 +28,7 @@ keystone.init({
 
 	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://slna:lVcqBrefQr1nTr4M@slna-shard-00-00-lazbm.mongodb.net:27017,slna-shard-00-01-lazbm.mongodb.net:27017,slna-shard-00-02-lazbm.mongodb.net:27017/test?ssl=true&replicaSet=SLNA-shard-0&authSource=admin' ||'mongodb://localhost/suciaescena',
 	'cloudinary config': process.env.CLOUDINARY_URL || 'cloudinary://333779167276662:_8jbSi9FB3sWYrfimcl8VKh34rI@keystone-demo',
-
+	'cloudinary secure': true,
 	// 'ssl': true,
 	// 'ssl' : 'only',
 
@@ -45,7 +45,6 @@ keystone.init({
 });
 
 keystone.set('frame guard', false);
-keystone.set('cloudinary secure', true);
 
 // Load your project's Models
 

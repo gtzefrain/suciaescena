@@ -7,7 +7,7 @@ div(ng-controller="PostCtrl as postctrl" layout="vertical" layout-fill)
       h2.titulo {{postctrl.post.title}}
       h4.subtitulo {{postctrl.post.content.brief}}
       div.contain
-        img(ng-src="{{postctrl.post.image.url}}" class="art-img" )
+        img(ng-src="{{postctrl.post.image.secure_url}}" class="art-img"  secure=true)
         //-       version con modal  img(ng-src="{{postctrl.post.image.url}}" class="art-img"  ng-click="showDialog($event, postctrl.post.image)")
       h4.subtitulo.autor Por {{postctrl.post.author.name.first}} {{postctrl.post.author.name.last}}
           | <br> {{postctrl.post.publishedDate | date:'longDate'}}

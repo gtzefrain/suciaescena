@@ -24,8 +24,9 @@ angular.module('mainApp.post', [])
     ngMeta.setTitle(self.post.title,''); //Title = Eluvium
     ngMeta.setTag('description', String(self.post.content.brief));
     ngMeta.setTag('og:description', String(self.post.content.brief));
-    ngMeta.setTag('og:image', String(self.post.image.secure_url));
-    ngMeta.setTag('image', String(self.post.image.secure_url));
+    document.querySelector("meta[property='og:type']").setAttribute('content', 'article');
+    document.querySelector("meta[property='og:image']").setAttribute('content', self.post.image.secure_url);
+    document.querySelector("meta[property='image']").setAttribute('content', self.post.image.secure_url);
     window.prerenderReady = true;
     console.log(window.prerenderReady);
   });

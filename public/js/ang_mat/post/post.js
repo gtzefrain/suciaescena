@@ -1,7 +1,6 @@
 'use strict';
 
 window.prerenderReady = false;
-console.log(window.prerenderReady);
 
 angular.module('mainApp.post', [])
 
@@ -31,7 +30,6 @@ angular.module('mainApp.post', [])
     self.addMetaTag('og:image:height', self.post.image.height);
 
     window.prerenderReady = true;
-    console.log(window.prerenderReady);
   });
 
   $scope.showDialog = function($event, image){
@@ -82,11 +80,14 @@ angular.module('mainApp.post', [])
     }
 
     self.addMetaTag = function(string, content){
-      if(document.querySelectorAll("meta[property='"+string+"']").length == 0){
+      var elem = document.querySelectorAll("meta[name='"+string+"']");
+      if(elem.length == 0){
         var z = document.createElement('meta');
         z.name = string
         z.content = content
         document.getElementsByTagName('head')[0].appendChild(z);
+      } else{
+        elem[0].content = content
       }
     }
 

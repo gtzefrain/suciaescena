@@ -1,28 +1,30 @@
 'use strict';
 
 window.prerenderReady = false;
-console.log(window.prerenderReady);
 
 angular.module('mainApp.blog', [])
 .controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', 'ngMeta' ,'$routeParams', '$scope', '$location', '$mdSidenav', '$mdUtil', '$route', '$timeout',function(Post, PostByCategory, PostCategory, ngMeta ,$routeParams, $scope, $location, $mdSidenav, $mdUtil, $route, $timeout,) {
   var blog = this;
   
-    blog.addMetaTag = function(string, content){
-      if(document.querySelectorAll("meta[property='"+string+"']").length == 0){
-        var z = document.createElement('meta');
-        z.name = string
-        z.content = content
-        document.getElementsByTagName('head')[0].appendChild(z);
-      }
+  blog.addMetaTag = function(string, content){
+    var elem = document.querySelectorAll("meta[name='"+string+"']");
+    if(elem.length == 0){
+      var z = document.createElement('meta');
+      z.name = string
+      z.content = content
+      document.getElementsByTagName('head')[0].appendChild(z);
+    } else{
+      elem[0].content = content
     }
+  }
 
   ngMeta.setTitle(self.title ,''); //Title = Eluvium
-    ngMeta.setTag('description', 'Medio musical mexicano');
-    document.querySelector("meta[property='og:type']").setAttribute('content', 'news.publishes');
-    document.querySelector("meta[property='og:image']").setAttribute('content', 'https://i.imgur.com/dhqFJHC.jpg');
-    blog.addMetaTag('image', 'https://i.imgur.com/dhqFJHC.jpg');
-    blog.addMetaTag('og:image:width', '1000');
-    blog.addMetaTag('og:image:height', '500');
+  ngMeta.setTag('description', 'Medio musical mexicano');
+  document.querySelector("meta[property='og:type']").setAttribute('content', 'news.publishes');
+  document.querySelector("meta[property='og:image']").setAttribute('content', 'https://i.imgur.com/dhqFJHC.jpg');
+  blog.addMetaTag('image', 'https://i.imgur.com/dhqFJHC.jpg');
+  blog.addMetaTag('og:image:width', '1000');
+  blog.addMetaTag('og:image:height', '500');
   blog.response = {};
   blog.posts = {};
   blog.currentPage = {}
@@ -39,6 +41,7 @@ angular.module('mainApp.blog', [])
 
 
   }
+
 
   function initScope() {
       if ($routeParams.key != null){
@@ -119,7 +122,6 @@ angular.module('mainApp.blog', [])
   $scope.closeRight = function() {
     $mdSidenav('right').close();
   };
-
 
   initScope();
 

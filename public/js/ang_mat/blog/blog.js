@@ -15,13 +15,14 @@ angular.module('mainApp.blog', [])
         document.getElementsByTagName('head')[0].appendChild(z);
       }
     }
-  
+
   ngMeta.setTitle(self.title ,''); //Title = Eluvium
     ngMeta.setTag('description', 'Medio musical mexicano');
     document.querySelector("meta[property='og:type']").setAttribute('content', 'news.publishes');
     document.querySelector("meta[property='og:image']").setAttribute('content', 'https://i.imgur.com/dhqFJHC.jpg');
     blog.addMetaTag('image', 'https://i.imgur.com/dhqFJHC.jpg');
-
+    blog.addMetaTag('og:image:width', '1000');
+    blog.addMetaTag('og:image:height', '500');
   blog.response = {};
   blog.posts = {};
   blog.currentPage = {}

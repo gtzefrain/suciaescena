@@ -11,10 +11,9 @@ angular.module('mainApp.post', [])
     $location.path( path );
   };
 
-
-
   Post.get({slug: $routeParams.slug}, function(post) {
     self.post = post;
+    self.post.present_url = 'https://www.slna.mx/post/' + self.post.slug;
     $location.search('page', null)
     var html = self.post.content.brief;
     var div = document.createElement("div");

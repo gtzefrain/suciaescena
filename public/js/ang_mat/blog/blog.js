@@ -4,9 +4,23 @@ window.prerenderReady = false;
 console.log(window.prerenderReady);
 
 angular.module('mainApp.blog', [])
-.controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', '$routeParams', '$scope', '$location', '$mdSidenav', '$mdUtil', '$route', '$timeout',function(Post, PostByCategory, PostCategory, $routeParams, $scope, $location, $mdSidenav, $mdUtil, $route, $timeout,) {
+.controller('HomeCtrl', ['Post', 'PostByCategory', 'PostCategory', 'ngMeta' ,'$routeParams', '$scope', '$location', '$mdSidenav', '$mdUtil', '$route', '$timeout',function(Post, PostByCategory, PostCategory, ngMeta ,$routeParams, $scope, $location, $mdSidenav, $mdUtil, $route, $timeout,) {
   var blog = this;
-
+  
+    blog.addMetaTag = function(string, content){
+      if(document.querySelectorAll("meta[property='"+string+"']").length == 0){
+        var z = document.createElement('meta');
+        z.name = string
+        z.content = content
+        document.getElementsByTagName('head')[0].appendChild(z);
+      }
+    }
+  
+  ngMeta.setTitle(self.title ,''); //Title = Eluvium
+    ngMeta.setTag('description', 'Medio musical mexicano');
+    document.querySelector("meta[property='og:type']").setAttribute('content', 'news.publishes');
+    document.querySelector("meta[property='og:image']").setAttribute('content', 'https://i.imgur.com/dhqFJHC.jpg');
+    blog.addMetaTag('image', 'https://i.imgur.com/dhqFJHC.jpg');
 
   blog.response = {};
   blog.posts = {};
@@ -21,6 +35,8 @@ angular.module('mainApp.blog', [])
         },300);
 
     return debounceFn;
+
+
   }
 
   function initScope() {
@@ -102,6 +118,7 @@ angular.module('mainApp.blog', [])
   $scope.closeRight = function() {
     $mdSidenav('right').close();
   };
+
 
   initScope();
 

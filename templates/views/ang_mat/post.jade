@@ -14,13 +14,13 @@ div(ng-controller="PostCtrl as postctrl" layout="vertical" layout-fill)
         //div.fb-share-button(data-layout="button" data-size="small" data-mobile-iframe="true")
       md-divider.topPost(inset)
       div.texto(ng-bind-html="postctrl.post.content.extended  | trustAs")
-      div(class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true")
-        a(target="_blank" href="{{postctrl.post.present_url}}"  class="fb-xfbml-parse-ignore") Share
-      div(class="twitter-contain")
-        a(class="twitter-share-button"
-          href="https://twitter.com/share"
-          data-size="large"
-          data-url="{{self.post.full_url}}") Tweet
+      //- div(class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true")
+      //-   a(target="_blank" ng-href="{{postctrl.post.present_url}}"  class="fb-xfbml-parse-ignore") Share
+      //- div(class="twitter-contain")
+      //-   a(class="twitter-share-button"
+      //-     href="https://twitter.com/share"
+      //-     data-size="large"
+      //-     data-url="{{self.post.full_url}}") Tweet
       div
         img.logoPost(src="/images/logo.png")
       div.category

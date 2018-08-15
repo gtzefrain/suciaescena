@@ -13,7 +13,7 @@ angular.module('mainApp.post', [])
 
   Post.get({slug: $routeParams.slug}, function(post) {
     self.post = post;
-    self.post.full_url = 'https://www.slna.mx/post/' + self.post.slug;
+    self.post.full_url = 'https://www.slna.mx/post/' + self.post.slug
     self.post.present_url = 'https://www.facebook.com/plugins/share_button.php?href='+ self.post.full_url
     +'&layout=button&size=small&mobile_iframe=true&appId=233655680539998&width=59&height=20';
     self.post.present_url = $sce.trustAsResourceUrl(self.post.present_url);
@@ -94,4 +94,44 @@ angular.module('mainApp.post', [])
     }
 
 
+// $scope.$on('$viewContentLoaded', function() {
+//   window.fbAsyncInit = function() {
+//     FB.init({
+//       appId            : '233655680539998',
+//       autoLogAppEvents : true,
+//       xfbml            : true,
+//       version          : 'v3.1'
+//     });
+//   };
+
+// (function(d, s, id) {
+//   var js, fjs = d.getElementsByTagName(s)[0];
+//   if (d.getElementById(id)) return;
+//   js = d.createElement(s); js.id = id;
+//   js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=233655680539998&autoLogAppEvents=1';
+//   fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
+
+// window.twttr = (function(d, s, id) {
+//   var js, fjs = d.getElementsByTagName(s)[0],
+//     t = window.twttr || {};
+//   if (d.getElementById(id)) return t;
+//   js = d.createElement(s);
+//   js.id = id;
+//   js.src = "https://platform.twitter.com/widgets.js";
+//   fjs.parentNode.insertBefore(js, fjs);
+
+//   t._e = [];
+//   t.ready = function(f) {
+//     t._e.push(f);
+//   };
+
+//   return t;
+// }(document, "script", "twitter-wjs"));
+// });
+
+
 }]);
+
+
+

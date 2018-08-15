@@ -4,7 +4,7 @@ window.prerenderReady = false;
 
 angular.module('mainApp.post', [])
 
-.controller('PostCtrl', ['$routeParams', '$location', '$scope', 'Post', 'ngMeta', '$mdDialog', function($routeParams, $location, $scope, Post, ngMeta, $mdDialog) {
+.controller('PostCtrl', ['$routeParams', '$location', '$scope', 'Post', 'ngMeta', '$mdDialog', '$sce', function($routeParams, $location, $scope, Post, ngMeta, $mdDialog, $sce) {
   var self = this;
 
   $scope.go = function ( path ) {
@@ -13,7 +13,10 @@ angular.module('mainApp.post', [])
 
   Post.get({slug: $routeParams.slug}, function(post) {
     self.post = post;
-    self.post.present_url = 'https://www.slna.mx/post/' + self.post.slug;
+    self.post.full_url = 'https://www.slna.mx/post/' + self.post.slug;
+    self.post.present_url = 'https://www.facebook.com/plugins/share_button.php?href='+ self.post.full_url
+    +'&layout=button&size=small&mobile_iframe=true&appId=233655680539998&width=59&height=20';
+    self.post.present_url = $sce.trustAsResourceUrl(self.post.present_url);
     $location.search('page', null)
     var html = self.post.content.brief;
     var div = document.createElement("div");

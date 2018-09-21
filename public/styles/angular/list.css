@@ -151,12 +151,28 @@ background-size: cover
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.greybackPost{
+  height: 100%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
+.subpost{
+  margin-left: 20px;
+  margin-right: 20px;
+}
 .greyinner{
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%,-50%);
   width: 300px;
+}
+
+.greyinnerPost{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 70%;
 }
 
 .greyinner > *{
@@ -167,10 +183,21 @@ background-size: cover
     text-transform: none;
 }
 /*Post*/
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
+.contain {
+  position: relative;
+}
 .art-img{
   margin-top: 10px;
-  width: 90%;
+  width: 100%;
+  object-fit: cover;
+  height: 300px;
     margin-bottom: 10px;
       margin: 15px;
 	max-height:
@@ -273,6 +300,9 @@ height: auto;
   text-shadow: 1px 1px black;
 }
 
+.postSubtitle{
+  font-size: 22px;
+}
 
 .post .titulo{
   /* margin-top:  35px; */
@@ -283,6 +313,7 @@ height: auto;
 }
 
 .post .texto{
+  margin-top: 25px;
   font-size: 25px;
   padding-left: 15%;
   padding-right: 15%;
@@ -339,6 +370,8 @@ strong{
  .postDate, .postCategory{
    font-size: 18px;
  }
+
+
 md-tabs{
       margin-bottom: 10px;
 }
@@ -371,7 +404,7 @@ margin-bottom: 50px;
 
   .art-img{
     margin-top: 10px;
-    width: 800px;
+    width: 50%;
       margin-bottom: 10px;
         margin: 15px;
   	max-height:
@@ -387,9 +420,10 @@ margin-bottom: 20px;
 }
 
 .post .texto{
+  margin-top: 25px;
   font-size: 18px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 15%;
+  padding-right: 15%;
   text-align: left;
 }
 
@@ -434,7 +468,7 @@ padding-left: 5px;
     font-size: 12px;
   }
   .texto *{
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.5;
     text-align: left !important;
   }
@@ -515,13 +549,17 @@ p > img {
    }
 
    .post .texto {
-    margin-top: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
+      margin-top: 25px;
+  padding-left: 10%;
+  padding-right: 10%
 }
    .postTitle{
      font-size: 20px;
    }
+
+    .postSubtitle{
+   font-size: 18px;
+  }
    .greyinner{
      width: inherit;
    }

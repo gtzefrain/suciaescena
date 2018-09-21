@@ -4,12 +4,19 @@ head
 div(ng-controller="PostCtrl as postctrl" layout="vertical" layout-fill)
   md-content(class="full center post")
     div.content
-      h2.titulo {{postctrl.post.title}}
-      h4.subtitulo {{postctrl.post.content.brief}}
-      div.contain
-        img(ng-src="{{postctrl.post.image.secure_url}}" class="art-img"  secure=true)
-        //-       version con modal  img(ng-src="{{postctrl.post.image.url}}" class="art-img"  ng-click="showDialog($event, postctrl.post.image)")
-      h4.subtitulo.autor Por {{postctrl.post.author.name.first}} {{postctrl.post.author.name.last}}
+      //- div.contain
+      //-   h2.titulo {{postctrl.post.title}}
+      //-   h4.subtitulo {{postctrl.post.content.brief}}
+      //-   img(ng-src="{{postctrl.post.image.secure_url}}" class="art-img"  secure=true)
+      div(class="md-tile-content img" layout="row" layout-align="space-around center" style="margin:20px" ng-style="{'background-image':'url(' + postctrl.post.image.secure_url + ')'}" )
+              div.datos_post(flex-gt-sm="100" flex="100")
+                //- div.datos_post(flex-gt-sm="100" flex="100" ng-class="{'izquierda':$even,'derecha':$odd}")  
+                div.greybackPost(flex="100")
+                  div.greyinnerPost
+                    h2.postTitle {{postctrl.post.title}}
+      div.subpost
+        h4.postSubtitle {{postctrl.post.content.brief}}
+        h4.subtitulo.autor Por {{postctrl.post.author.name.first}} {{postctrl.post.author.name.last}}
           | <br> {{postctrl.post.publishedDate | date:'longDate'}}
         //div.fb-share-button(data-layout="button" data-size="small" data-mobile-iframe="true")
       md-divider.topPost(inset)

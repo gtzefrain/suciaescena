@@ -19,7 +19,7 @@
    * # A metatags service for single-page applications
    * that supports setting arbitrary meta tags
    */
-  angular.module('ngMeta', [])
+  return angular.module('ngMeta', [])
     .provider('ngMeta', function() {
 
       'use strict';
@@ -32,7 +32,7 @@
         useTitleSuffix: false
       };
 
-      function Meta($rootScope) {
+      function Meta($rootScope, $injector) {
 
         /**
          * @ngdoc method
@@ -134,7 +134,7 @@
          * 3. Iterates through all default tags and sets the ones
          *    that were not utilized while setting the state/route tags.
          *
-         * @returns {Object} self
+         * @returns void
          */
         var readRouteMeta = function(meta) {
           meta = meta || {};
@@ -170,6 +170,20 @@
           readRouteMeta(angular.copy(current.meta || (current.data && current.data.meta)));
         };
 
+        /**
+         * @ngdoc method
+         * @name resetMeta
+         * @description
+         * Helper function to reset ngMeta data and apply defaults. Useful when setting up ngmeta data in a
+         * UI-router resolve function.
+         *
+         * @returns {Object} self
+         */
+        var resetMeta = function() {
+          readRouteMeta();
+
+          return this;
+        };
 
         /**
          * @ngdoc method
@@ -191,13 +205,20 @@
           $rootScope.ngMeta = {};
           $rootScope.$on('$routeChangeSuccess', update);
           $rootScope.$on('$stateChangeSuccess', update);
+          if ($injector.has('$transitions')) {
+            var $transitions = $injector.get('$transitions');
+            $transitions.onSuccess({}, function(transition) {
+              update(null, transition.$to());
+            });
+          }
         };
 
         return {
           'init': init,
           'setTitle': setTitle,
           'setTag': setTag,
-          'setDefaultTag': setDefaultTag
+          'setDefaultTag': setDefaultTag,
+          'resetMeta' : resetMeta
         };
       }
 
@@ -306,8 +327,8 @@
       };
 
 
-      this.$get = ["$rootScope", function($rootScope) {
-        return new Meta($rootScope);
+      this.$get = ["$rootScope", "$injector", function($rootScope, $injector) {
+        return new Meta($rootScope, $injector);
       }];
     });
 }));
